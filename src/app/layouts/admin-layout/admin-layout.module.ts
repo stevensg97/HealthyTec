@@ -13,7 +13,6 @@ import { CentroComponent } from '../../centro/centro.component';
 import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
 import { TratamientosComponent } from '../../tratamientos/tratamientos.component';
-import { AlgoComponent } from '../../algo/algo.component';
 
 import {
   MatButtonModule,
@@ -42,7 +41,6 @@ import {
     FuncionarioComponent,
     DiagnosticosComponent,
     TratamientosComponent,
-    AlgoComponent,
   ]
 })
 

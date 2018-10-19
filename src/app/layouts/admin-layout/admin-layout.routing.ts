@@ -10,7 +10,6 @@ import { CentroComponent } from '../../centro/centro.component';
 import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
 import { TratamientosComponent } from '../../tratamientos/tratamientos.component';
-import { AlgoComponent } from '../../algo/algo.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -65,5 +64,4 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'funcionario',  component: FuncionarioComponent },
     { path: 'diagnosticos',  component: DiagnosticosComponent },
     { path: 'tratamientos',  component: TratamientosComponent },
-    { path: 'algo',  component: AlgoComponent },
 ];
