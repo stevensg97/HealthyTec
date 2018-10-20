@@ -430,8 +430,8 @@ form .ng-valid{
     background-color: rgba(0, 0, 0, 0.12);
 }
 .mat-focused .mat-input-placeholder {
-  color: $brand-primary;
+  color: $brand-danger;
 }
 .mat-input-ripple {
-    background-color: $brand-primary;
+    background-color: $brand-danger;
 }
