@@ -5,48 +5,54 @@
                 <div class="row">
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsGet"
-                            aria-expanded="false" aria-controls="clpsGet">Ver Diagnósticos</button>
+                            aria-expanded="false" aria-controls="clpsGet">Ver Funcionarios</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsAdd"
-                            aria-expanded="false" aria-controls="clpsAdd">Añadir Diagnóstico</button>
+                            aria-expanded="false" aria-controls="clpsAdd">Añadir Funcionario</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsUpdate"
-                            aria-expanded="false" aria-controls="clpsUpdate">Modificar Diagnóstico</button>
+                            aria-expanded="false" aria-controls="clpsUpdate">Modificar Funcionario</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsDelete"
-                            aria-expanded="false" aria-controls="clpsDelete">Eliminar Diagnóstico</button>
+                            aria-expanded="false" aria-controls="clpsDelete">Eliminar Funcionario</button>
                     </div>
                 </div>
                 <div class="row">
-                    <!--Ver Diagnósticos-->
+                    <!--Ver Funcionarios-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse show" id="clpsGet">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Diagnósticos</h4>
-                                    <p class="card-category">A continuación se muestran los diagnósticos existentes</p>
+                                    <h4 class="card-title">Funcionarios</h4>
+                                    <p class="card-category">A continuación se muestran los funcionarios existentes</p>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class="text-danger">
                                                 <th>
-                                                    Identificador
+                                                    Cédula
                                                 </th>
                                                 <th>
                                                     Nombre
                                                 </th>
                                                 <th>
-                                                    Descripción
+                                                    Primer Apellido
                                                 </th>
                                                 <th>
-                                                    Síntomas
+                                                    Segundo Apellido
                                                 </th>
                                                 <th>
-                                                    Tratamientos
+                                                    Tipo
+                                                </th>
+                                                <th>
+                                                    Fecha de Ingreso
+                                                </th>
+                                                <th>
+                                                    Área
                                                 </th>
                                             </thead>
                                             <tbody>
@@ -159,167 +165,156 @@
                             </div>
                         </div>
                     </div>
-                    <!--Añadir Diagnóstico-->
+                    <!--Añadir Funcionarios-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse" id="clpsAdd">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Añadir Diagnóstico</h4>
-                                    <p class="card-category">Complete el formulario con la información del nuevo
-                                        diagnóstico</p>
+                                    <h4 class="card-title">Añadir Funcionario</h4>
+                                    <p class="card-category">Complete el formulario con la información del nuevo funcionario</p>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-9">
+                                            
+                                            <div class="col-md-4">
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="Nombre" type="text">
                                                 </mat-form-field>
                                             </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Primer Apellido" type="text">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Segundo Apellido" type="text">
+                                                </mat-form-field>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="taDescripcionAdd">Descripción</label>
-                                                    <mat-form-field class="example-full-width">
-                                                        <textarea matInput class="form-control" id="taDescripcionAdd"
-                                                            placeholder="Digite aqui la descripción del diagnóstico"
-                                                            rows="3"></textarea>
-                                                    </mat-form-field>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Cédula" type="text">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Fecha de Ingreso" type="date">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label>Multiple</label>
-                                                <select class="selectpicker form-control" id="number2-multiple" title="Select a number"
-                                                    data-hide-disabled="true" multiple data-actions-box="true">
-                                                    <option>Fiebre</option>
-                                                        <option>Comezón</option>
-                                                        <option>Ardor</option>
-                                                        <option>Vista Irritada</option>
-                                                        <option>Cansancio</option>
+                                                <label>Tipo de funcionario</label>
+                                                <select class="form-control" id="slcTipo">
+                                                    <option selected>Doctor(a)</option>
+                                                    <option>Enfermero(a)</option>
+                                                    <option>Secretario(a)</option>
                                                 </select>
-                                                <!--
-                                                    <label for="slcAddSintomas">Síntomas</label>
-                                                    <select class="select form-control"  title="Seleccione los síntomas"
-                                                        id="slcAddSintomas" multiple="multiple" size="2" style="height: 100%;">
-                                                        <option>Fiebre</option>
-                                                        <option>Comezón</option>
-                                                        <option>Ardor</option>
-                                                        <option>Vista Irritada</option>
-                                                        <option>Cansancio</option>
-                                                    </select>-->
                                             </div>
+                                            
                                         </div>
-                                        <div class="row" style=" margin-top: 3%;">
+                                        <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label for="slcAddTratamientos">Tratamientos</label>
-                                                <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
+                                                <label>Área de trabajo</label>
+                                                <select class="form-control" id="slcArea">
+                                                    <option selected>Administrativa</option>
+                                                    <option>Emergencias</option>
+                                                    <option>Ginecología</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" style=" margin-top: 5%;" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--Modificar Diagnóstico-->
+                    <!--Modificar Centro Médico-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse" id="clpsUpdate">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Modificar Diagnóstico</h4>
-                                    <p class="card-category">Complete el formulario con la información actualizada del
-                                        diagnóstico</p>
+                                    <h4 class="card-title">Modificar Funcionario</h4>
+                                    <p class="card-category">Complete el formulario con la información actualizada del funcionario</p>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-9">
+                                            
+                                            <div class="col-md-4">
                                                 <mat-form-field class="example-full-width">
                                                     <input matInput placeholder="Nombre" type="text">
                                                 </mat-form-field>
                                             </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Primer Apellido" type="text">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Segundo Apellido" type="text">
+                                                </mat-form-field>
+                                            </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="taDescripcionUpdate">Descripción</label>
-                                                    <mat-form-field class="example-full-width">
-                                                        <textarea matInput class="form-control" id="taDescripcionUpdate"
-                                                            placeholder="Digite aqui la descripción del diagnóstico"
-                                                            rows="3"></textarea>
-                                                    </mat-form-field>
-                                                </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Cédula" type="text">
+                                                </mat-form-field>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Fecha de Ingreso" type="date">
+                                                </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label for="slcUpdateSintomas">Síntomas</label>
-                                                <select class="select form-control" title="Seleccione los síntomas" id="slcUpdateSintomas"
-                                                    multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Fiebre</option>
-                                                    <option>Comezón</option>
-                                                    <option>Ardor</option>
-                                                    <option>Vista Irritada</option>
-                                                    <option>Cansancio</option>
+                                                <label>Tipo de funcionario</label>
+                                                <select class="form-control" id="slcTipo">
+                                                    <option selected>Doctor(a)</option>
+                                                    <option>Enfermero(a)</option>
+                                                    <option>Secretario(a)</option>
                                                 </select>
                                             </div>
+                                            
                                         </div>
-                                        <div class="row" style=" margin-top: 3%;">
+                                        <div class="row">
                                             <div class="form-group col-md-12">
-                                                <label for="slcUpdateTratamientos">Tratamientos</label>
-                                                <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
+                                                <label>Área de trabajo</label>
+                                                <select class="form-control" id="slcArea">
+                                                    <option selected>Administrativa</option>
+                                                    <option>Emergencias</option>
+                                                    <option>Ginecología</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" style="margin-top: 5%" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--Eliminar Diagnóstico-->
+                    <!--Eliminar Funcionario-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse" id="clpsDelete">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Eliminar Diagnóstico</h4>
-                                    <p class="card-category">Indique el identificador del diagnóstico que desea
-                                        eliminar</p>
+                                    <h4 class="card-title">Eliminar Funcionario</h4>
+                                    <p class="card-category">Indique la cédula del funcionario que desea eliminar</p>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador de diagnóstico" type="text">
+                                                    <input matInput placeholder="Cédula del funcionario" type="text">
                                                 </mat-form-field>
                                             </div>
                                         </div>
