@@ -4,6 +4,6 @@ export class Funcionario {
     Apellido1: string;
     Apellido2: string;
     TipoFuncionario: string;
-    FechaIngreso: date;
+    FechaIngreso: string;
     Area: string;
 }

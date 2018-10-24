@@ -3,7 +3,7 @@ export class Pacientes {
     Nombre: string;
     Apellido1: string;
     Apellido2: string;
-    FechaNacimiento: date;
+    FechaNacimiento: string;
     TipoSangre: string;
     Nacionalidad: string;
     LugarResidencia: string;

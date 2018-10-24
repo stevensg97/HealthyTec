@@ -4,5 +4,5 @@ export class CentroAtencion {
     Lugar: string;
     Capacidad: number;
     TipoCentro: string;
-    FechaIngreso: date;
+    FechaIngreso: string;
 }

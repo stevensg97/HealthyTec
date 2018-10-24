@@ -1,8 +1,8 @@
 export class Citas {
     Identificador: number;
     Area: string;
-    Fecha: date;
+    Fecha: any;
     Hora: string;
-    InformacionAdicional: date;
+    InformacionAdicional: string;
     Estado: string;
 }
