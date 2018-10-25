@@ -3,33 +3,81 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsGet"
-                            aria-expanded="false" aria-controls="clpsGet">Ver Tratamientos</button>
+                            aria-expanded="false" aria-controls="clpsGet">Ver Citas</button>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsAdd"
-                            aria-expanded="false" aria-controls="clpsAdd">Añadir Tratamiento</button>
+                            aria-expanded="false" aria-controls="clpsAdd">Añadir Cita</button>
                     </div>
-                    <div class="col-md-3">
-                        <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsUpdate"
-                            aria-expanded="false" aria-controls="clpsUpdate">Modificar Tratamiento</button>
-                    </div>
-                    <div class="col-md-3">
+                    <div class="col-md-4">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsDelete"
-                            aria-expanded="false" aria-controls="clpsDelete">Eliminar Tratamiento</button>
+                            aria-expanded="false" aria-controls="clpsDelete">Cancelar Cita</button>
                     </div>
                 </div>
                 <div class="row">
-                    <!--Ver Tratamientos-->
+                    <!--Ver Citas-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse show" id="clpsGet">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Tratamientos</h4>
-                                    <p class="card-category">A continuación se muestran los tratamientos existentes</p>
+                                    <h4 class="card-title ">Citas</h4>
+                                    <p class="card-category">A continuación se muestran las citas existentes</p>
                                 </div>
                                 <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse"
+                                                data-target="#clpsFilter" aria-expanded="false" aria-controls="clpsFilter">Filtrar</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-danger col-md-12" type="button">Ver Todas</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="collapse col-md-12" id="clpsFilter">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Fechas</label>
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput (click)="setFilter('fechas')" placeholder="dd,mm,aaaa/dd,mm,aaaa"
+                                                            type="text">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Estado</label>
+                                                    <select class="form-control" (click)="setFilter('estado')">
+                                                        <option value="" disabled selected>Seleccione el estado</option>
+                                                        <option value="Registrada">Registrada</option>
+                                                        <option value="Cancelada por el paciente">Cancelada por el
+                                                            paciente</option>
+                                                        <option value="Cancelada por centro médico">Cancelada por
+                                                            centro médico</option>
+                                                        <option value="Asignada">Asignada</option>
+                                                        <option value="Realizada">Realizada</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Área</label>
+                                                    <select class="form-control" (click)="setFilter('area')">
+                                                        <option value="" disabled selected>Seleccione el área</option>
+                                                        <option>Administrativa</option>
+                                                        <option>Emergencias</option>
+                                                        <option>Ginecología</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn btn-danger" type="button" (click)="prueba();">Aceptar</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead class="text-danger">
@@ -37,16 +85,25 @@
                                                     Identificador
                                                 </th>
                                                 <th>
-                                                    Nombre
+                                                    Área
                                                 </th>
                                                 <th>
-                                                    Tipo
+                                                    Fecha
                                                 </th>
                                                 <th>
-                                                    Dosis
+                                                    Hora
                                                 </th>
                                                 <th>
-                                                    Monto
+                                                    Observación
+                                                </th>
+                                                <th>
+                                                    Estado
+                                                </th>
+                                                <th>
+                                                    Diagnósticos
+                                                </th>
+                                                <th>
+                                                    Tratamientos
                                                 </th>
                                             </thead>
                                             <tbody>
@@ -159,135 +216,73 @@
                             </div>
                         </div>
                     </div>
-                    <!--Añadir Tratamiento-->
+                    <!--Añadir Cita-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse" id="clpsAdd">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Añadir Tratamiento</h4>
-                                    <p class="card-category">Complete el formulario con la información del nuevo
-                                        tratamiento</p>
+                                    <h4 class="card-title">Añadir Cita</h4>
+                                    <p class="card-category">Complete el formulario con la información de la cita que
+                                        desea programar</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormAnadir" #citasAnadirForm="ngForm">
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <label>Tipo de tratamiento</label>
-                                                <select class="form-control" id="slcTipo">
-                                                    <option selected>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
-                                                    <option>Ultrasonidos</option>
-                                                    <option>Otros</option>
+                                            <div class="col-md-12">
+                                                <label>Área de la Cita</label>
+                                                <select class="form-control" formControlName="Area" #Area>
+                                                    <option value="" disabled selected>Seleccione el área</option>
+                                                    <option>Administrativa</option>
+                                                    <option>Emergencias</option>
+                                                    <option>Ginecología</option>
                                                 </select>
                                             </div>
+
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-6">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Dosis" type="number">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Monto" type="number">
+                                            <div class="col-md-12">
+                                                <mat-form-field color="danger" class="example-full-width">
+                                                    <input matInput placeholder="Fecha y Hora" type="datetime-local"
+                                                        formControlName="Timestamp" #Timestamp>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <div class="row">
+                                            <div class="col-md-12 form-group">
+                                                <label>Observación (opcional)</label>
+                                                <mat-form-field class="example-full-width">
+                                                    <textarea matInput class="form-control" formControlName="Observacion"
+                                                        #Observacion placeholder="Digite aqui alguna observación que considere necesaria"
+                                                        rows="3"></textarea>
+                                                </mat-form-field>
+                                            </div>
+
+                                        </div>
+                                        <button mat-raised-button type="submit" (click)="prueba()" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!--Modificar Tratamiento-->
-                    <div class="col-md-12">
-                        <div class="collapse multi-collapse" id="clpsUpdate">
-                            <div class="card">
-                                <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Modificar Tratamiento</h4>
-                                    <p class="card-category">Complete el formulario con la información actualizada del tratamiento</p>
-                                </div>
-                                <div class="card-body">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-9">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
-                                                </mat-form-field>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-md-12">
-                                                <label>Tipo de tratamiento</label>
-                                                <select class="form-control" id="slcTipo">
-                                                    <option selected>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
-                                                    <option>Ultrasonidos</option>
-                                                    <option>Otros</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Dosis" type="number">
-                                                </mat-form-field>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Monto" type="number">
-                                                </mat-form-field>
-                                            </div>
-                                        </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
-                                        <div class="clearfix"></div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--Eliminar Tratamiento-->
+                    <!--Cancelar Cita-->
                     <div class="col-md-12">
                         <div class="collapse multi-collapse" id="clpsDelete">
                             <div class="card">
                                 <div class="card-header card-header-danger">
-                                    <h4 class="card-title">Eliminar Tratamiento</h4>
-                                    <p class="card-category">Indique el identificador del tratamiento que desea eliminar</p>
+                                    <h4 class="card-title">Cancelar Cita</h4>
+                                    <p class="card-category">Indique el identificador de la cita que desea cancelar</p>
                                 </div>
                                 <div class="card-body">
                                     <form>
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador del tratamiento" type="text">
+                                                    <input matInput placeholder="Identificador de la cita" type="text">
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Eliminar</button>
+                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

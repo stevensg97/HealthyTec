@@ -7,20 +7,17 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-var typeUser = "administrador";
+var typeUser = "pacientes";
 export var ROUTES: RouteInfo[];
-if (typeUser == "algo") {
+if (typeUser == "pacientes") {
     ROUTES = [
-        { path: '/centro', title: 'Centros de Atención', icon: 'local_hospital', class: '' },
-        { path: '/funcionario', title: 'Funcionarios', icon: 'group', class: '' },
-        { path: '/diagnosticos', title: 'Diagnósticos/Enfermedades', icon: 'list_alt', class: '' },
-        { path: '/tratamientos', title: 'Tratamientos', icon: 'healing', class: '' },
-        { path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
-        { path: '/user-profile', title: 'User Profile', icon: 'person', class: '' },
-        { path: '/table-list', title: 'Table List', icon: 'content_paste', class: '' },
-        { path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
-        { path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
-        { path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
+        { path: '/citas', title: 'Citas', icon: 'calendar_today', class: '' },
+        //{ path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+        //{ path: '/user-profile', title: 'User Profile', icon: 'person', class: '' },
+        //{ path: '/table-list', title: 'Table List', icon: 'content_paste', class: '' },
+        //{ path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
+        //{ path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
+        //{ path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
     ];
 } if (typeUser === "administrador") {
     ROUTES = [
