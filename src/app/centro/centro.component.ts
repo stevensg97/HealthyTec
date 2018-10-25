@@ -1,41 +1,37 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } from '@angular/forms';
-import { service} from '../../service.service';
-import { Client } from '../../models/client';
+import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  selector: 'app-centro',
+  templateUrl: './centro.component.html',
+  styleUrls: ['./centro.component.css']
 })
-export class CentroAntencion implements OnInit {
+export class CentroComponent implements OnInit {
 
   createFormAnadir: FormGroup;
-  createFormModificar: FormGroup;
-  createFormEliminar: FormGroup;
+  //createFormModificar: FormGroup;
+  //createFormEliminar: FormGroup;
 
-  constructor(private service: service ,private fb: FormBuilder, private router: Router) {
-    this.createForm = this.fb.group({
-        CodigoCentro: '',
-        Nombre: '',
-        Lugar: '',
-        Capacidad: '',
-        TipoCentro: '',
-        FechaIngreso: '',
-        Area: '',
-    })
-   }
+  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
+    this.createFormAnadir = this.fb.group({
+      CodigoCentro: '',
+      Nombre: '',
+      Lugar: '',
+      Capacidad: '',
+      TipoCentro: '',
+    });
+  }
 
   ngOnInit() {
-    this.resetForm();
+    //this.resetForm();
   }
 
-  resetForm(form?: NgForm){
-    if(form != null)
-      form.reset();
+  prueba(){
+    alert(this.createFormAnadir.value.TipoCentro);
   }
-
+  /*
   addCentro(form: NgForm){
     console.log(form.value);
     this.service.postClient(form.value)
@@ -52,6 +48,6 @@ export class CentroAntencion implements OnInit {
       console.log("<--- RESPONSE --->")
       console.log(data);
     });
-  }
+  }*/
 
 }

@@ -385,7 +385,7 @@ fieldset[disabled] .form-group .form-control{
   &.mat-focused{
     .mat-input-underline{
       .mat-input-ripple{
-        background-color: #4caf50;
+        background-color: #af4c4c;
       }
     }
   }
@@ -409,21 +409,22 @@ fieldset[disabled] .form-group .form-control{
     color: #f44336;
   }
 }
+/*
 form .ng-valid{
   &.mat-focused .mat-form-field-label,
   .mat-focused .mat-form-field-label,
   .mat-form-field-label{
-    color: #4caf50;
+    color: rgba(0, 0, 0, 0.12);
   }
     .mat-input-underline{
-      background-color: #4caf50;
+      background-color: rgba(0, 0, 0, 0.12);
       height: 2px;
       .mat-input-ripple{
-        background-color: #4caf50;
+        background-color: $brand-danger;
       }
     }
 
-}
+}*/
 .mat-input-placeholder {
     color: rgba(0, 0, 0, 0.38);
 }

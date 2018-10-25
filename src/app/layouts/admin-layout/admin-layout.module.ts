@@ -13,6 +13,8 @@ import { CentroComponent } from '../../centro/centro.component';
 import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
 import { TratamientosComponent } from '../../tratamientos/tratamientos.component';
+import { ServiceService } from '../../service.service';
+//import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import {
   MatButtonModule,
@@ -29,6 +31,7 @@ import {
     MatRippleModule,
     MatInputModule,
     MatTooltipModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     DashboardComponent,
@@ -41,7 +44,8 @@ import {
     FuncionarioComponent,
     DiagnosticosComponent,
     TratamientosComponent,
-  ]
+  ],
+  providers: [ServiceService],
 })
 
 export class AdminLayoutModule {}

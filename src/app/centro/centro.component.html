@@ -169,42 +169,47 @@
                                         médico</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormAnadir" #centroAnadirForm="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Código del centro" type="text">
+                                                    <input matInput placeholder="Código del centro" type="text"
+                                                        formControlName="CodigoCentro" #CodigoCentro>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
-                                                <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
+                                                <mat-form-field color="danger" class="example-full-width">
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre"
+                                                        #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Capacidad máxima de pacientes" type="text">
+                                                    <input matInput placeholder="Capacidad máxima de pacientes" type="text"
+                                                        formControlName="Capacidad" #Capacidad>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Ubicación" type="text">
+                                                    <input matInput placeholder="Ubicación" type="text" formControlName="Lugar"
+                                                        #Lugar>
                                                 </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label>Tipo de centro médico</label>
-                                                <select class="form-control" id="slcTipo">
-                                                    <option selected>Hospital</option>
-                                                    <option>Clínica</option>
-                                                    <option>EBAIS</option>
+                                                <select class="form-control" formControlName="TipoCentro" #TipoCentro>
+                                                    <option value="" disabled selected>Seleccione el tipo de centro</option>
+                                                    <option value="Hospital" selected>Hospital</option>
+                                                    <option value="Clínica">Clínica</option>
+                                                    <option value="EBAIS">EBAIS</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button type="submit" (click)="prueba()" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
