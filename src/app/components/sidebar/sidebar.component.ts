@@ -7,9 +7,9 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-var typeUser = "pacientes";
+var typeUser = "administrador";
 export var ROUTES: RouteInfo[];
-if (typeUser == "pacientes") {
+if (typeUser === "pacientes") {
     ROUTES = [
         { path: '/citas', title: 'Citas', icon: 'calendar_today', class: '' },
         //{ path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
@@ -25,6 +25,29 @@ if (typeUser == "pacientes") {
         { path: '/funcionario', title: 'Funcionarios', icon: 'group', class: '' },
         { path: '/diagnosticos', title: 'Diagnósticos/Enfermedades', icon: 'list_alt', class: '' },
         { path: '/tratamientos', title: 'Tratamientos', icon: 'healing', class: '' },
+        { path: '/reportes', title: 'Reportes', icon: 'description', class: '' },
+    ];
+}if (typeUser === "doctor") {
+    ROUTES = [
+        { path: '/citasdoctor', title: 'Citas', icon: 'calendar_today', class: '' },
+        { path: '/reportesdoctor', title: 'Reportes', icon: 'description', class: '' },
+        //{ path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+        //{ path: '/user-profile', title: 'User Profile', icon: 'person', class: '' },
+        //{ path: '/table-list', title: 'Table List', icon: 'content_paste', class: '' },
+        //{ path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
+        //{ path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
+        //{ path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
+    ];
+}if (typeUser === "secretario") {
+    ROUTES = [
+        { path: '/citassecretario', title: 'Citas', icon: 'calendar_today', class: '' },
+        { path: '/reportessecretario', title: 'Reportes', icon: 'description', class: '' },
+        //{ path: '/dashboard', title: 'Dashboard', icon: 'dashboard', class: '' },
+        //{ path: '/user-profile', title: 'User Profile', icon: 'person', class: '' },
+        //{ path: '/table-list', title: 'Table List', icon: 'content_paste', class: '' },
+        //{ path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
+        //{ path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
+        //{ path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
     ];
 }
 /*export const ROUTES: RouteInfo[] = [

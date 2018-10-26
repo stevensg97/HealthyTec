@@ -1,0 +1,232 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6">
+                        <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsPaciente"
+                            aria-expanded="false" aria-controls="clpsPaciente">Información de Paciente</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsCitas"
+                            aria-expanded="false" aria-controls="clpsCitas">Citas Registradas</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <!--Reporte Paciente-->
+                    <div class="col-md-12">
+                        <div class="collapse multi-collapse show" id="clpsPaciente">
+                            <div class="card">
+                                <div class="card-header card-header-danger">
+                                    <h4 class="card-title ">Información de Paciente</h4>
+                                    <p class="card-category">A continuación se muestra la información del paciente que
+                                        desea consultar</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label>Paciente que desea consultar: </label>
+                                            <mat-form-field class="example-full-width">
+                                                <input matInput placeholder="Cédula del paciente" type="text">
+                                            </mat-form-field>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4" style="margin: 0 auto; float: none;">
+                                            <button class="btn btn-danger col-md-12" type="button">Consultar</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                    <th>
+                                                        Cédula
+                                                    </th>
+                                                    <th>
+                                                        Nombre Completo
+                                                    </th>
+                                                    <th>
+                                                        Fecha de Nacimiento
+                                                    </th>
+                                                    <th>
+                                                        Tipo de Sangre
+                                                    </th>
+                                                    <th>
+                                                        Nacionalidad
+                                                    </th>
+                                                    <th>
+                                                        Lugar de Resisdencia
+                                                    </th>
+                                                    <th>
+                                                        Teléfonos
+                                                    </th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1
+                                                        </td>
+                                                        <td>
+                                                            Dakota Rice
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            2
+                                                        </td>
+                                                        <td>
+                                                            Yay Irin
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            3
+                                                        </td>
+                                                        <td>
+                                                            Sage Rodriguez
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Reporte Citas-->
+                    <div class="col-md-12">
+                        <div class="collapse multi-collapse" id="clpsCitas">
+                            <div class="card">
+                                <div class="card-header card-header-danger">
+                                    <h4 class="card-title ">Citas Registradas</h4>
+                                    <p class="card-category">A continuación se muestran las citas registradas en el sistema</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4" style="margin: 0 auto; float: none;">
+                                            <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse"
+                                                data-target="#clpsFilter" aria-expanded="false" aria-controls="clpsFilter">Filtrar</button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="collapse col-md-12" id="clpsFilter">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Paciente</label>
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput (click)="setFilter('fechas')" placeholder="Cédula del paciente"
+                                                            type="text">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Fechas</label>
+                                                    <mat-form-field class="example-full-width">
+                                                        <input matInput (click)="setFilter('fechas')" placeholder="dd,mm,aaaa/dd,mm,aaaa"
+                                                            type="text">
+                                                    </mat-form-field>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Estado</label>
+                                                    <select class="form-control" (click)="setFilter('estado')">
+                                                        <option value="" disabled selected>Seleccione el estado</option>
+                                                        <option value="Registrada">Registrada</option>
+                                                        <option value="Cancelada por el paciente">Cancelada por el
+                                                            paciente</option>
+                                                        <option value="Cancelada por centro médico">Cancelada por
+                                                            centro médico</option>
+                                                        <option value="Asignada">Asignada</option>
+                                                        <option value="Realizada">Realizada</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <label>Filtrar por Área</label>
+                                                    <select class="form-control" (click)="setFilter('area')">
+                                                        <option value="" disabled selected>Seleccione el área</option>
+                                                        <option>Administrativa</option>
+                                                        <option>Emergencias</option>
+                                                        <option>Ginecología</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn btn-danger" type="button" (click)="prueba();">Aceptar</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="text-danger">
+                                                    <th>
+                                                        Identificador
+                                                    </th>
+                                                    <th>
+                                                        Área
+                                                    </th>
+                                                    <th>
+                                                        Fecha y Hora
+                                                    </th>
+                                                    <th>
+                                                        Observación
+                                                    </th>
+                                                    <th>
+                                                        Estado
+                                                    </th>
+                                                    <th>
+                                                        Diagnósticos
+                                                    </th>
+                                                    <th>
+                                                        Tratamientos
+                                                    </th>
+                                                    <th>
+                                                        Cédula del Paciente
+                                                    </th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            1
+                                                        </td>
+                                                        <td>
+                                                            Dakota Rice
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            2
+                                                        </td>
+                                                        <td>
+                                                            Yay Irin
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            3
+                                                        </td>
+                                                        <td>
+                                                            Sage Rodriguez
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

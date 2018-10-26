@@ -4,24 +4,25 @@ import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } fr
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-diagnosticos',
-  templateUrl: './diagnosticos.component.html',
-  styleUrls: ['./diagnosticos.component.css']
+  selector: 'app-reportesdoctor',
+  templateUrl: './reportesdoctor.component.html',
+  styleUrls: ['./reportesdoctor.component.css']
 })
-export class DiagnosticosComponent implements OnInit {
+export class ReportesDoctorComponent implements OnInit {
 
   createFormAnadir: FormGroup;
   //createFormModificar: FormGroup;
   //createFormEliminar: FormGroup;
 
   constructor(/*private service: ServiceService, private fb: FormBuilder, private router: Router*/) {
-    /*
-    this.createFormAnadir = this.fb.group({
-      Identificador: '',
-      Nombre: '',
-      Descripcion: '',
-      Sintomas: '',
-      tratamientos: '',
+    /*this.createFormAnadir = this.fb.group({
+        Cedula: '',
+        Nombre: '',
+        Apellido1: '',
+        Apellido2: '',
+        TipoFuncionario: '',
+        FechaIngreso: '',
+        Area: '',
     })*/
   }
 
@@ -50,5 +51,5 @@ export class DiagnosticosComponent implements OnInit {
       console.log(data);
     });
   }*/
-
+ 
 }

@@ -4,18 +4,18 @@ import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } fr
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-centro',
-  templateUrl: './centro.component.html',
-  styleUrls: ['./centro.component.css']
+  selector: 'app-funcionario',
+  templateUrl: './funcionario.component.html',
+  styleUrls: ['./funcionario.component.css']
 })
-export class CentroComponent implements OnInit {
+export class FuncionarioComponent implements OnInit {
 
   createFormAnadir: FormGroup;
   //createFormModificar: FormGroup;
   //createFormEliminar: FormGroup;
 
-  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
-    this.createFormAnadir = this.fb.group({
+  constructor(/*private service: ServiceService, private fb: FormBuilder, private router: Router*/) {
+    /*this.createFormAnadir = this.fb.group({
         Cedula: '',
         Nombre: '',
         Apellido1: '',
@@ -23,17 +23,17 @@ export class CentroComponent implements OnInit {
         TipoFuncionario: '',
         FechaIngreso: '',
         Area: '',
-    })
+    })*/
   }
 
   ngOnInit() {
     //this.resetForm();
   }
-
+  /*
   prueba(){
     alert(this.createFormAnadir.value.TipoCentro);
   }
-  /*
+  
   addCentro(form: NgForm){
     console.log(form.value);
     this.service.postClient(form.value)

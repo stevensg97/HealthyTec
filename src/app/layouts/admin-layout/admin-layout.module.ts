@@ -14,6 +14,11 @@ import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
 import { TratamientosComponent } from '../../tratamientos/tratamientos.component';
 import { CitasComponent } from '../../citas/citas.component';
+import { ReportesComponent } from '../../reportes/reportes.component';
+import { CitasDoctorComponent } from '../../citasdoctor/citasdoctor.component';
+import { CitasSecretarioComponent } from '../../citassecretario/citassecretario.component';
+import { ReportesDoctorComponent } from '../../reportesdoctor/reportesdoctor.component';
+import { ReportesSecretarioComponent } from '../../reportessecretario/reportessecretario.component';
 import { ServiceService } from '../../service.service';
 //import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
@@ -46,8 +51,13 @@ import {
     DiagnosticosComponent,
     TratamientosComponent,
     CitasComponent,
+    ReportesComponent,
+    CitasDoctorComponent,
+    CitasSecretarioComponent,
+    ReportesDoctorComponent,
+    ReportesSecretarioComponent,
   ],
   providers: [ServiceService],
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }

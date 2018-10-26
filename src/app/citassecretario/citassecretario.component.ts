@@ -4,35 +4,36 @@ import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } fr
 import { ServiceService } from '../service.service';
 
 @Component({
-  selector: 'app-diagnosticos',
-  templateUrl: './diagnosticos.component.html',
-  styleUrls: ['./diagnosticos.component.css']
+  selector: 'app-citassecretario',
+  templateUrl: './citassecretario.component.html',
+  styleUrls: ['./citassecretario.component.css']
 })
-export class DiagnosticosComponent implements OnInit {
-
+export class CitasSecretarioComponent implements OnInit {
+  fiterBy: string;
   createFormAnadir: FormGroup;
   //createFormModificar: FormGroup;
   //createFormEliminar: FormGroup;
 
   constructor(/*private service: ServiceService, private fb: FormBuilder, private router: Router*/) {
-    /*
-    this.createFormAnadir = this.fb.group({
-      Identificador: '',
-      Nombre: '',
-      Descripcion: '',
-      Sintomas: '',
-      tratamientos: '',
-    })*/
+    /*this.createFormAnadir = this.fb.group({
+      Area: '',
+      Timestamp: '',
+      Observacion: '',
+    });*/
   }
 
   ngOnInit() {
     //this.resetForm();
   }
-  /*
+
   prueba(){
-    alert(this.createFormAnadir.value.TipoCentro);
+    alert(this.fiterBy);
   }
-  
+
+  setFilter(filter: string){
+    this.fiterBy=filter;
+  }
+  /*
   addCentro(form: NgForm){
     console.log(form.value);
     this.service.postClient(form.value)

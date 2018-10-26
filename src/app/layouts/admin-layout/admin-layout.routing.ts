@@ -11,6 +11,11 @@ import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
 import { TratamientosComponent } from '../../tratamientos/tratamientos.component';
 import { CitasComponent } from '../../citas/citas.component';
+import { ReportesComponent } from '../../reportes/reportes.component';
+import { ReportesDoctorComponent } from '../../reportesdoctor/reportesdoctor.component';
+import { ReportesSecretarioComponent } from '../../reportessecretario/reportessecretario.component';
+import { CitasDoctorComponent } from '../../citasdoctor/citasdoctor.component';
+import { CitasSecretarioComponent } from '../../citassecretario/citassecretario.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -66,4 +71,9 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'diagnosticos',  component: DiagnosticosComponent },
     { path: 'tratamientos',  component: TratamientosComponent },
     { path: 'citas',  component: CitasComponent },
+    { path: 'reportes',  component: ReportesComponent },
+    { path: 'citasdoctor',  component: CitasDoctorComponent },
+    { path: 'citassecretario',  component: CitasSecretarioComponent },
+    { path: 'reportesdoctor',  component: ReportesDoctorComponent },
+    { path: 'reportessecretario',  component: ReportesSecretarioComponent },
 ];
