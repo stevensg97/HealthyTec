@@ -12,19 +12,25 @@
                             <div class="card-body">
                                 <form>
                                     <div class="row">
+                                     <div class="col-md-4">
+                                            <mat-form-field class="example-full-width">
+                                                 <input matInput placeholder="Cedula" type="number" formControlName = "Cedula" #Cedula>
+                                            </mat-form-field>
+                                        </div>
+
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Nombre" type="text">
+                                                <input matInput placeholder="Nombre" type="text" formControlName = "Nombre" #Nombre>
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Primer Apellido" type="text">
+                                                <input matInput placeholder="Primer Apellido" type="text" formControlName = "Apellido1" #Apellido1>
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Segundo Apellido" type="text">
+                                                <input matInput placeholder="Segundo Apellido" type="text" formControlName = "Apellido2" #Apellido2>
                                             </mat-form-field>
                                         </div>
                                     </div>
@@ -32,24 +38,19 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Cédula" type="text">
+                                                <input matInput placeholder=" Codigo Usuario" type="text" formControlName = "CodigoUsuario" #CodigoUsuario>
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Usuario" type="text">
-                                            </mat-form-field>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Contraseña" type="password">
+                                                <input matInput placeholder="Contraseña" type="password" formControlName = "Password" #Password>
                                             </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-md-12">
                                             <label>Tipo de Sangre</label>
-                                            <select class="form-control" id="slcTipo">
+                                            <select class="form-control" id="slcTipo" formControlName = "TipoSangre" #TipoSangre>
                                                 <option selected>A+</option>
                                                 <option>A-</option>
                                                 <option>B+</option>
@@ -65,24 +66,24 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Fecha de Nacimiento" type="date">
+                                                <input matInput placeholder="Fecha de Nacimiento" type="date" formControlName = "FechaNacimiento" #FechaNacimiento>
                                             </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Nacionalidad" type="text">
+                                                <input matInput placeholder="Nacionalidad" type="text" formControlName = "Nacionalidad" #Nacionalidad>
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Lugar de Residencia" type="text">
+                                                <input matInput placeholder="Lugar de Residencia" type="text" formControlName = "Ubicacion" #Ubicacion>
                                             </mat-form-field>
                                         </div>
                                         <div class="col-md-4">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Teléfonos" type="text">
+                                                <input matInput placeholder="Teléfonos" type="text" formControlName = "Telefonos" #Telefonos >
                                             </mat-form-field>
                                         </div>
                                     </div>
