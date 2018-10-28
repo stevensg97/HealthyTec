@@ -40,7 +40,7 @@ export class CitasComponent implements OnInit {
     .subscribe((data: any) =>{
       console.log("<--- RESPONSE --->")
       console.log(data);
-    });
+    }); 
   }
 
   updateCentro(form: NgForm){
