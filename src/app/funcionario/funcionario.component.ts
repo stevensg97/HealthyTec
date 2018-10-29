@@ -90,7 +90,7 @@ export class FuncionarioComponent implements OnInit {
     this.genUser("add");
     this.genPass("add");
     console.log(form.value);
-    this.service.postFuncionario(form.value)
+    this.service.postFuncionario(form.value) 
       .subscribe((data: any) => {
         console.log("<--- RESPONSE --->")
         console.log(data);
