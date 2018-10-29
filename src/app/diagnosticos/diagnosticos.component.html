@@ -169,16 +169,16 @@
                                         diagnóstico</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormAnadir" #diagnosticoFormAnadir = "ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
+                                                    <input matInput placeholder="Identificador" type="text" formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre" #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -189,7 +189,7 @@
                                                     <mat-form-field class="example-full-width">
                                                         <textarea matInput class="form-control" id="taDescripcionAdd"
                                                             placeholder="Digite aqui la descripción del diagnóstico"
-                                                            rows="3"></textarea>
+                                                            rows="3" formControlName="Descripcion" #Descripcion></textarea>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
@@ -198,29 +198,30 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcAddSintomas">Síntomas</label>
                                                 <select class="select form-control" title="Seleccione los síntomas" id="slcAddSintomas"
-                                                    multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Fiebre</option>
-                                                    <option>Comezón</option>
-                                                    <option>Ardor</option>
-                                                    <option>Vista Irritada</option>
-                                                    <option>Cansancio</option>
+                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas" #Sintomas>
+                                                    <option value="Fiebre">Fiebre</option>
+                                                    <option value="Dolor de Cabeza">Dolor de Cabeza</option>
+                                                    <option value="Comezón">Comezón</option>
+                                                    <option value="Ardor">Ardor</option>
+                                                    <option value="Vista Irritada">Vista Irritada</option>
+                                                    <option value="Cansancio">Cansancio</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="row" style=" margin-top: 3%;">
+                                        <div class="row" style=" margin-top: 3%;"> 
                                             <div class="form-group col-md-12">
                                                 <label for="slcAddTratamientos">Tratamientos</label>
                                                 <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
+                                                    id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;" formControlName="Tratamientos" #Tratamientos>
+                                                    <option value="Medicamento">Medicamento</option>
+                                                    <option value="Cirugía">Cirugía</option>
+                                                    <option value="Curación">Curación</option>
+                                                    <option value="Sutura">Sutura</option>
+                                                    <option value="Radiografía">Radiografía</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" style=" margin-top: 5%;" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="addDiagnostico(diagnosticoFormAnadir)" style=" margin-top: 5%;" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -237,16 +238,16 @@
                                         diagnóstico</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormModificar" #diagnosticoFormModificar = "ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
+                                                    <input matInput placeholder="Identificador" type="text" formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre" #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -257,7 +258,7 @@
                                                     <mat-form-field class="example-full-width">
                                                         <textarea matInput class="form-control" id="taDescripcionUpdate"
                                                             placeholder="Digite aqui la descripción del diagnóstico"
-                                                            rows="3"></textarea>
+                                                            rows="3" formControlName="Descripcion" #Descripcion></textarea>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
@@ -266,12 +267,13 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcUpdateSintomas">Síntomas</label>
                                                 <select class="select form-control" title="Seleccione los síntomas" id="slcUpdateSintomas"
-                                                    multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Fiebre</option>
-                                                    <option>Comezón</option>
-                                                    <option>Ardor</option>
-                                                    <option>Vista Irritada</option>
-                                                    <option>Cansancio</option>
+                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas" #Sintomas>
+                                                    <option value="Fiebre">Fiebre</option>
+                                                    <option value="Dolor de Cabeza">Dolor de Cabeza</option>
+                                                    <option value="Comezón">Comezón</option>
+                                                    <option value="Ardor">Ardor</option>
+                                                    <option value="Vista Irritada">Vista Irritada</option>
+                                                    <option value="Cansancio">Cansancio</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -279,16 +281,16 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcUpdateTratamientos">Tratamientos</label>
                                                 <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;">
-                                                    <option>Medicamento</option>
-                                                    <option>Cirugía</option>
-                                                    <option>Curación</option>
-                                                    <option>Sutura</option>
-                                                    <option>Radiografía</option>
+                                                    id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;" formControlName="Tratamientos" #Tratamientos>
+                                                    <option value="Medicamento">Medicamento</option>
+                                                    <option value="Cirugía">Cirugía</option>
+                                                    <option value="Curación">Curación</option>
+                                                    <option value="Sutura">Sutura</option>
+                                                    <option value="Radiografía">Radiografía</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" style="margin-top: 5%" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="updateDiagnostico(diagnosticoFormModificar)" style="margin-top: 5%" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

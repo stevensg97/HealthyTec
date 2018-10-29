@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } from '@angular/forms';
 import { ServiceService } from '../service.service';
 
+declare interface TableData {
+  //headerRow: string[];
+  dataRows: string[][];
+}
+
 @Component({
   selector: 'app-citas',
   templateUrl: './citas.component.html',
@@ -10,7 +15,10 @@ import { ServiceService } from '../service.service';
 })
 export class CitasComponent implements OnInit {
   fiterBy: string;
-  createFormAnadir: FormGroup;
+  rows: any;    //Rows control data
+  public tableData1: TableData;
+  contador: number;
+  createFormAnadir: FormGroup; 
   //createFormModificar: FormGroup;
   //createFormEliminar: FormGroup;
 

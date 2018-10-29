@@ -3,5 +3,5 @@ export class Enfermedades {
     Nombre: string;
     Descripcion: string;
     Sintomas: string;
-    tratamientos: string;
+    Tratamientos: string;
 }
