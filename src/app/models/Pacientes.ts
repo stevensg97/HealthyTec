@@ -1,11 +1,10 @@
+import { Nombre } from './nombre'
 export class Pacientes {
-    Identificador: number;
-    Nombre: string;
-    Apellido1: string;
-    Apellido2: string;
+    Cedula: number;
+    NombreCompleto: Nombre;
     FechaNacimiento: string;
     TipoSangre: string;
     Nacionalidad: string;
-    LugarResidencia: string;
-    Telefono:number;
+    Ubicacion: string;
+    Telefonos: string;
 }

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutRoutes } from './admin-layout.routing';
 import { HttpClientModule } from '@angular/common/http'
+import { LoginComponent } from '../../login/login.component';
+import { RegistroComponent } from '../../registro/registro.component';
 import { CentroComponent } from '../../centro/centro.component';
 import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
@@ -42,6 +44,8 @@ import {
     //TypographyComponent,
     //IconsComponent,
     //NotificationsComponent,
+    LoginComponent,
+    RegistroComponent,
     CentroComponent,
     FuncionarioComponent,
     DiagnosticosComponent,

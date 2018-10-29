@@ -19,7 +19,7 @@ export class DiagnosticosComponent implements OnInit {
   id: string;
   createFormAnadir: FormGroup;
   createFormModificar: FormGroup;
-  //createFormEliminar: FormGroup;
+  createFormEliminar: FormGroup;
 
   constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
     this.id = '';
@@ -37,10 +37,13 @@ export class DiagnosticosComponent implements OnInit {
       Sintomas: '',
       Tratamientos: '',
     })
+    this.createFormEliminar = this.fb.group({
+      Id: '',
+    })
   }
 
   ngOnInit() {
-    //this.resetForm();
+    this.getDiagnosticos();
   }
 
   addDiagnostico(form: NgForm) {
@@ -62,6 +65,15 @@ export class DiagnosticosComponent implements OnInit {
       });
   }
 
+  deleteDiagnostico(form: NgForm) {
+    console.log(form.value);
+    this.getId(this.createFormEliminar.value.Id);
+    this.service.deleteDiagnostico(this.id)
+      .subscribe((data: any) => {
+        console.log("<--- RESPONSE --->")
+        console.log(data);
+      });
+  }
 
   getId(identificador: string) {
     this.service.getDiagnosticos().subscribe(response => {
@@ -73,23 +85,17 @@ export class DiagnosticosComponent implements OnInit {
       }
     })
   }
-/*
-  getFuncionarios() {
-    this.service.getFuncionarios().subscribe(response => {
+
+  getDiagnosticos() {
+    this.service.getDiagnosticos().subscribe(response => {
       console.log('Response es:', response);
       this.rows = [];
-      let dataKeys = ["Cedula", "NombreCompleto", "TipoFuncionario", "FechaIngreso", "AreaTrabajo"]; //For keys
+      let dataKeys = ["Id", "Nombre", "Descripcion", "Sintomas", "Tratamientos"]; //For keys
       for (var i = 0; i < response["length"]; i++) {
         let dataValues = []; //For values
         for (let key in dataKeys) {
+          dataValues.push(response[i][dataKeys[key]]);
 
-          if (dataKeys[key] == "NombreCompleto") {
-            dataValues.push(response[i][dataKeys[key]]["Nombre"]);
-            dataValues.push(response[i][dataKeys[key]]["Apellido1"]);
-            dataValues.push(response[i][dataKeys[key]]["Apellido2"]);
-          } else {
-            dataValues.push(response[i][dataKeys[key]]);
-          }
         }
         this.rows[i] = dataValues;
       }
@@ -99,28 +105,5 @@ export class DiagnosticosComponent implements OnInit {
       dataRows: this.rows
     };
   }
-  */
-  /*
-  prueba(){
-    alert(this.createFormAnadir.value.TipoCentro);
-  }
-  
-  addCentro(form: NgForm){
-    console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
-      console.log("<--- RESPONSE --->")
-      console.log(data);
-    });
-  }
-
-  updateCentro(form: NgForm){
-    console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
-      console.log("<--- RESPONSE --->")
-      console.log(data);
-    });
-  }*/
 
 }

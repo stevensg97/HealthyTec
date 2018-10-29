@@ -3,9 +3,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-3">
+                    <div class="col-md-3"> 
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsGet"
-                            aria-expanded="false" aria-controls="clpsGet">Ver Diagnósticos</button>
+                            aria-expanded="false" aria-controls="clpsGet" (click)="getDiagnosticos()">Ver Diagnósticos</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsAdd"
@@ -50,107 +50,8 @@
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                    <td>
-                                                        Oud-Turnhout
-                                                    </td>
-                                                    <td>
-                                                        $36,738
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                    <td>
-                                                        Sinaai-Waas
-                                                    </td>
-                                                    <td>
-                                                        $23,789
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                    <td>
-                                                        Baileux
-                                                    </td>
-                                                    <td>
-                                                        $56,142
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                    <td>
-                                                        Overland Park
-                                                    </td>
-                                                    <td>
-                                                        $38,735
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                    <td>
-                                                        Feldkirchen in Kärnten
-                                                    </td>
-                                                    <td>
-                                                        $63,542
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
-                                                    <td>
-                                                        Gloucester
-                                                    </td>
-                                                    <td>
-                                                        $78,615
-                                                    </td>
+                                                <tr *ngFor="let row of tableData1.dataRows">
+                                                    <td *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -169,16 +70,18 @@
                                         diagnóstico</p>
                                 </div>
                                 <div class="card-body">
-                                    <form [formGroup]="createFormAnadir" #diagnosticoFormAnadir = "ngForm">
+                                    <form [formGroup]="createFormAnadir" #diagnosticoFormAnadir="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text" formControlName="Id" #Id>
+                                                    <input matInput placeholder="Identificador" type="text"
+                                                        formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre" #Nombre>
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre"
+                                                        #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -198,7 +101,8 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcAddSintomas">Síntomas</label>
                                                 <select class="select form-control" title="Seleccione los síntomas" id="slcAddSintomas"
-                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas" #Sintomas>
+                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas"
+                                                    #Sintomas>
                                                     <option value="Fiebre">Fiebre</option>
                                                     <option value="Dolor de Cabeza">Dolor de Cabeza</option>
                                                     <option value="Comezón">Comezón</option>
@@ -208,11 +112,12 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="row" style=" margin-top: 3%;"> 
+                                        <div class="row" style=" margin-top: 3%;">
                                             <div class="form-group col-md-12">
                                                 <label for="slcAddTratamientos">Tratamientos</label>
                                                 <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;" formControlName="Tratamientos" #Tratamientos>
+                                                    id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;"
+                                                    formControlName="Tratamientos" #Tratamientos>
                                                     <option value="Medicamento">Medicamento</option>
                                                     <option value="Cirugía">Cirugía</option>
                                                     <option value="Curación">Curación</option>
@@ -221,7 +126,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button (click)="addDiagnostico(diagnosticoFormAnadir)" style=" margin-top: 5%;" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="addDiagnostico(diagnosticoFormAnadir)" style=" margin-top: 5%;"
+                                            class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -238,16 +144,18 @@
                                         diagnóstico</p>
                                 </div>
                                 <div class="card-body">
-                                    <form [formGroup]="createFormModificar" #diagnosticoFormModificar = "ngForm">
+                                    <form [formGroup]="createFormModificar" #diagnosticoFormModificar="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text" formControlName="Id" #Id>
+                                                    <input matInput placeholder="Identificador" type="text"
+                                                        formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre" #Nombre>
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre"
+                                                        #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -267,7 +175,8 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcUpdateSintomas">Síntomas</label>
                                                 <select class="select form-control" title="Seleccione los síntomas" id="slcUpdateSintomas"
-                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas" #Sintomas>
+                                                    multiple="multiple" size="2" style="height: 100%;" formControlName="Sintomas"
+                                                    #Sintomas>
                                                     <option value="Fiebre">Fiebre</option>
                                                     <option value="Dolor de Cabeza">Dolor de Cabeza</option>
                                                     <option value="Comezón">Comezón</option>
@@ -281,7 +190,8 @@
                                             <div class="form-group col-md-12">
                                                 <label for="slcUpdateTratamientos">Tratamientos</label>
                                                 <select class="select form-control" title="Seleccione los tratamientos"
-                                                    id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;" formControlName="Tratamientos" #Tratamientos>
+                                                    id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;"
+                                                    formControlName="Tratamientos" #Tratamientos>
                                                     <option value="Medicamento">Medicamento</option>
                                                     <option value="Cirugía">Cirugía</option>
                                                     <option value="Curación">Curación</option>
@@ -290,7 +200,8 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button (click)="updateDiagnostico(diagnosticoFormModificar)" style="margin-top: 5%" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="updateDiagnostico(diagnosticoFormModificar)"
+                                            style="margin-top: 5%" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -307,15 +218,17 @@
                                         eliminar</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormEliminar" #diagnosticoFormEliminar="ngForm">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador de diagnóstico" type="text">
+                                                    <input matInput placeholder="Identificador de diagnóstico" type="text"
+                                                        formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Eliminar</button>
+                                        <button mat-raised-button (click)="deleteDiagnostico(diagnosticoFormEliminar)"
+                                            class="btn btn-danger pull-right">Eliminar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

@@ -1,7 +1,8 @@
+import { Fecha } from './fecha'
 export class Citas {
-    Identificador: number;
+    Id: number;
     Area: string;
-    Fecha: any;
+    Fecha: Fecha;
     Hora: string;
     InformacionAdicional: string;
     Estado: string;

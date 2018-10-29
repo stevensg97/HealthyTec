@@ -6,6 +6,8 @@ import { Routes } from '@angular/router';
 //import { TypographyComponent } from '../../typography/typography.component';
 //import { IconsComponent } from '../../icons/icons.component';
 //import { NotificationsComponent } from '../../notifications/notifications.component';
+import { LoginComponent } from '../../login/login.component';
+import { RegistroComponent } from '../../registro/registro.component';
 import { CentroComponent } from '../../centro/centro.component';
 import { FuncionarioComponent } from '../../funcionario/funcionario.component';
 import { DiagnosticosComponent } from '../../diagnosticos/diagnosticos.component';
@@ -66,6 +68,8 @@ export const AdminLayoutRoutes: Routes = [
     //{ path: 'typography',     component: TypographyComponent },
     //{ path: 'icons',          component: IconsComponent },
     //{ path: 'notifications',  component: NotificationsComponent },
+    { path: 'login',  component: LoginComponent },
+    { path: 'registro',  component: RegistroComponent },
     { path: 'centro',  component: CentroComponent },
     { path: 'funcionario',  component: FuncionarioComponent },
     { path: 'diagnosticos',  component: DiagnosticosComponent },
