@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsGet"
-                            aria-expanded="false" aria-controls="clpsGet">Ver Tratamientos</button>
+                            aria-expanded="false" aria-controls="clpsGet" (click)="getTratamientos()">Ver Tratamientos</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsAdd"
@@ -50,107 +50,8 @@
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                    <td>
-                                                        Oud-Turnhout
-                                                    </td>
-                                                    <td>
-                                                        $36,738
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                    <td>
-                                                        Sinaai-Waas
-                                                    </td>
-                                                    <td>
-                                                        $23,789
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                    <td>
-                                                        Baileux
-                                                    </td>
-                                                    <td>
-                                                        $56,142
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                    <td>
-                                                        Overland Park
-                                                    </td>
-                                                    <td>
-                                                        $38,735
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                    <td>
-                                                        Feldkirchen in Kärnten
-                                                    </td>
-                                                    <td>
-                                                        $63,542
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
-                                                    <td>
-                                                        Gloucester
-                                                    </td>
-                                                    <td>
-                                                        $78,615
-                                                    </td>
+                                                <tr *ngFor="let row of tableData1.dataRows">
+                                                    <td *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -169,23 +70,25 @@
                                         tratamiento</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormAnadir" #tratamientoFormAnadir="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text" formControlName = "Id" #Id>
+                                                    <input matInput placeholder="Identificador" type="text"
+                                                        formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text" formControlName = "Nombre" #Nombre >
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre"
+                                                        #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label>Tipo de tratamiento</label>
-                                                <select class="form-control" id="slcTipo" formControlName = "Tipo" #Tipo>
+                                                <select class="form-control" id="slcTipo" formControlName="Tipo" #Tipo>
                                                     <option selected>Medicamento</option>
                                                     <option>Cirugía</option>
                                                     <option>Curación</option>
@@ -199,16 +102,18 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Dosis" type="number" formControlName = "Dosis" #Dosis>
+                                                    <input matInput placeholder="Dosis" type="number" formControlName="Dosis"
+                                                        #Dosis>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-6">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Monto" type="number" formControlName = "MontoTratamiento" #MontoTratamiento>
+                                                    <input matInput placeholder="Monto" type="number" formControlName="MontoTratamiento"
+                                                        #MontoTratamiento>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="addTratamiento(tratamientoFormAnadir)" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -221,26 +126,27 @@
                             <div class="card">
                                 <div class="card-header card-header-danger">
                                     <h4 class="card-title">Modificar Tratamiento</h4>
-                                    <p class="card-category">Complete el formulario con la información actualizada del tratamiento</p>
+                                    <p class="card-category">Complete el formulario con la información actualizada del
+                                        tratamiento</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormModificar" #tratamientoFormModificar="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador" type="text">
+                                                    <input matInput placeholder="Identificador" type="text" formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-9">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Nombre" type="text">
+                                                    <input matInput placeholder="Nombre" type="text" formControlName="Nombre" #Nombre>
                                                 </mat-form-field>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-md-12">
                                                 <label>Tipo de tratamiento</label>
-                                                <select class="form-control" id="slcTipo">
+                                                <select class="form-control" id="slcTipo" formControlName="Tipo" #Tipo>
                                                     <option selected>Medicamento</option>
                                                     <option>Cirugía</option>
                                                     <option>Curación</option>
@@ -254,16 +160,16 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Dosis" type="number">
+                                                    <input matInput placeholder="Dosis" type="number" formControlName="Dosis" #Dosis>
                                                 </mat-form-field>
                                             </div>
                                             <div class="col-md-6">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Monto" type="number">
+                                                    <input matInput placeholder="Monto" type="number" formControlName="MontoTratamiento" #MontoTratamiento>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="updateTratamiento(tratamientoFormModificar)" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -276,18 +182,19 @@
                             <div class="card">
                                 <div class="card-header card-header-danger">
                                     <h4 class="card-title">Eliminar Tratamiento</h4>
-                                    <p class="card-category">Indique el identificador del tratamiento que desea eliminar</p>
+                                    <p class="card-category">Indique el identificador del tratamiento que desea
+                                        eliminar</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormEliminar" #tratamientoFormEliminar="ngForm">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador del tratamiento" type="text">
+                                                    <input matInput placeholder="Identificador del tratamiento" type="text" formControlName="Id" #Id>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Eliminar</button>
+                                        <button mat-raised-button (click)="deleteTratamiento(tratamientoFormEliminar)" class="btn btn-danger pull-right">Eliminar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

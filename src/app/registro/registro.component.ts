@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } from '@angular/forms';
 import { ServiceService } from '../service.service';
+import { Nombre } from 'app/models/nombre';
+
 
 @Component({
   selector: 'app-registro',
@@ -11,47 +13,42 @@ import { ServiceService } from '../service.service';
 export class RegistroComponent implements OnInit {
 
   createFormAnadir: FormGroup;
-  //createFormModificar: FormGroup;
-  //createFormEliminar: FormGroup;
-
-  constructor(/*private service: ServiceService, private fb: FormBuilder, private router: Router*/) {
-    /*this.createFormAnadir = this.fb.group({
-        Cedula: '',
-        Nombre: '',
-        Apellido1: '',
-        Apellido2: '',
-        FechaNacimiento: '',
-        TipoSangre: '',
-        Nacionalidad: '',
-        LugarResidencia: '',
-        Telefono:'',
-    })*/
+  nombrecompleto: Nombre;
+  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
+    this.nombrecompleto = new Nombre();
+    this.createFormAnadir = this.fb.group({
+      Cedula: '',
+      NombreCompleto: this.nombrecompleto,
+      FechaNacimiento: '',
+      TipoSangre: '',
+      Nacionalidad: '',
+      Ubicacion: '',
+      Telefonos: '',
+      CodigoUsuario: '',
+      Password: '',
+    })
   }
 
   ngOnInit() {
     //this.resetForm();
   }
-  /*
-  prueba(){
-    alert(this.createFormAnadir.value.TipoCentro);
-  }
-  
-  addCentro(form: NgForm){
+
+  addPaciente(form: NgForm, nombre: any, apellido1: any, apellido2: any, telefonos: string) {
+    this.setNombre(nombre, apellido1, apellido2);
+    this.createFormAnadir.value.Telefonos = telefonos.split(",");
     console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
-      console.log("<--- RESPONSE --->")
-      console.log(data);
-    });
+    this.service.postPaciente(form.value)
+      .subscribe((data: any) => {
+        console.log("<--- RESPONSE --->")
+        console.log(data);
+      });
   }
 
-  updateCentro(form: NgForm){
-    console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
-      console.log("<--- RESPONSE --->")
-      console.log(data);
-    });
-  }*/
+  setNombre(nombre: any, apellido1: any, apellido2: any) {
+    this.nombrecompleto.Nombre = nombre;
+      this.nombrecompleto.Apellido1 = apellido1;
+      this.nombrecompleto.Apellido2 = apellido2;
+
+  }
 
 }

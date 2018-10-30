@@ -1,4 +1,4 @@
-export class Tratamientos {
+export class Tratamiento {
     Cedula: number;
     Nombre: string;
     TipoTratamiento: string;

@@ -7,7 +7,7 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-var typeUser = "administrador";
+var typeUser = "doctor";
 export var ROUTES: RouteInfo[];
 if (typeUser === "pacientes") {
     ROUTES = [

@@ -32,7 +32,7 @@
                                                 data-target="#clpsFilter" aria-expanded="false" aria-controls="clpsFilter">Filtrar</button>
                                         </div>
                                         <div class="col-md-6">
-                                            <button class="btn btn-danger col-md-12" type="button">Ver Todas</button>
+                                            <button class="btn btn-danger col-md-12" (click)="getCitas('116670973')" type="button">Ver Todas</button>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,115 +99,10 @@
                                                 <th>
                                                     Estado
                                                 </th>
-                                                <th>
-                                                    Diagnósticos
-                                                </th>
-                                                <th>
-                                                    Tratamientos
-                                                </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                    <td>
-                                                        Oud-Turnhout
-                                                    </td>
-                                                    <td>
-                                                        $36,738
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                    <td>
-                                                        Sinaai-Waas
-                                                    </td>
-                                                    <td>
-                                                        $23,789
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                    <td>
-                                                        Baileux
-                                                    </td>
-                                                    <td>
-                                                        $56,142
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                    <td>
-                                                        Overland Park
-                                                    </td>
-                                                    <td>
-                                                        $38,735
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                    <td>
-                                                        Feldkirchen in Kärnten
-                                                    </td>
-                                                    <td>
-                                                        $63,542
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
-                                                    <td>
-                                                        Gloucester
-                                                    </td>
-                                                    <td>
-                                                        $78,615
-                                                    </td>
+                                                <tr *ngFor="let row of tableData1.dataRows">
+                                                    <td  *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -230,7 +125,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label>Área de la Cita</label>
-                                                <select class="form-control" formControlName="Area" #Area>
+                                                <select class="form-control" formControlName="Especialidad"
+                                                    #Especialidad>
                                                     <option value="" disabled selected>Seleccione el área</option>
                                                     <option>Administrativa</option>
                                                     <option>Emergencias</option>
@@ -243,7 +139,7 @@
                                             <div class="col-md-12">
                                                 <mat-form-field color="danger" class="example-full-width">
                                                     <input matInput placeholder="Fecha y Hora" type="datetime-local"
-                                                        formControlName="Timestamp" #Timestamp>
+                                                        #Timestamp>
                                                 </mat-form-field>
                                             </div>
                                         </div>
@@ -251,14 +147,15 @@
                                             <div class="col-md-12 form-group">
                                                 <label>Observación (opcional)</label>
                                                 <mat-form-field class="example-full-width">
-                                                    <textarea matInput class="form-control" formControlName="Observacion"
-                                                        #Observacion placeholder="Digite aqui alguna observación que considere necesaria"
+                                                    <textarea matInput class="form-control" formControlName="InformacionAdicional"
+                                                        #InformacionAdicional placeholder="Digite aqui alguna observación que considere necesaria"
                                                         rows="3"></textarea>
                                                 </mat-form-field>
                                             </div>
 
                                         </div>
-                                        <button mat-raised-button type="submit" (click)="prueba()" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="addCita(citasAnadirForm, Timestamp.value)"
+                                            class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
