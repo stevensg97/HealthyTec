@@ -209,7 +209,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" (click)="prueba()" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button type="submit" (click)="addCentro(centroAnadirForm)" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -227,7 +227,7 @@
                                         médico correspondiente</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormModificar" #centroModificarForm="ngForm">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <mat-form-field class="example-full-width">
@@ -263,7 +263,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button type="submit" (click)= "centroModificarForm" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
@@ -279,7 +279,7 @@
                                     <p class="card-category">Indique el código del centro médico que desea eliminar</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormEliminar" #centroEliminarForm="ngForm">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
@@ -287,7 +287,7 @@
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Eliminar</button>
+                                        <button mat-raised-button type="submit" (click)="centroEliminarForm" class="btn btn-danger pull-right">Eliminar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

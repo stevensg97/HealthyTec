@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } from '@angular/forms';
 import { ServiceService } from '../service.service';
 
+
 @Component({
   selector: 'app-citasdoctor',
   templateUrl: './citasdoctor.component.html',
@@ -11,16 +12,21 @@ import { ServiceService } from '../service.service';
 export class CitasDoctorComponent implements OnInit {
   fiterBy: string;
   createFormAnadir: FormGroup;
-  //createFormModificar: FormGroup;
-  //createFormEliminar: FormGroup;
+  anadirCitaForm: FormGroup;
+  cancelCitaForm: FormGroup;
 
-  constructor(/*private service: ServiceService, private fb: FormBuilder, private router: Router*/) {
-    /*this.createFormAnadir = this.fb.group({
-      Area: '',
-      Timestamp: '',
-      Observacion: '',
-    });*/
-  }
+
+  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
+
+    this.createFormAnadir = this.fb.group({
+      Cedula: '',
+      NombreCompleto: "",
+      TipoFuncionario: '',
+      FechaIngreso: '',
+      AreaTrabajo: '',
+      CodigoUsuario: '',
+      Password: '',
+    })}
 
   ngOnInit() {
     //this.resetForm();
@@ -33,23 +39,23 @@ export class CitasDoctorComponent implements OnInit {
   setFilter(filter: string){
     this.fiterBy=filter;
   }
-  /*
-  addCentro(form: NgForm){
-    console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
-      console.log("<--- RESPONSE --->")
-      console.log(data);
-    });
+
+
+  cancelCita(){
+
   }
 
-  updateCentro(form: NgForm){
-    console.log(form.value);
-    this.service.postClient(form.value)
-    .subscribe((data: any) =>{
+  addCitas(form: NgForm){
+    this.service.postCita(form.value) 
+    .subscribe((data: any) => {
       console.log("<--- RESPONSE --->")
       console.log(data);
     });
-  }*/
+
+  }
+
+  updateEstadoCita(){
+
+  }
 
 }
