@@ -5,7 +5,6 @@ import { ServiceService } from '../service.service';
 import { Nombre } from 'app/models/nombre';
 
 declare interface TableData {
-  //headerRow: string[];
   dataRows: string[][];
 }
 
@@ -21,7 +20,7 @@ export class FuncionarioComponent implements OnInit {
   nombrecompletoupdate: Nombre;
   contador: number;
   id: string;
-  funcionarios: Object;
+  //funcionarios: Object;
   createFormAnadir: FormGroup;
   createFormModificar: FormGroup;
   createFormEliminar: FormGroup;
