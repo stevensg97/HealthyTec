@@ -130,6 +130,14 @@ export class ServiceService {
     return this.httpClient.get(this.uri + "citas");
   }
 
+  getCitasByDate(fechas: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + fechas);
+  }
+
+  getCitasByCond(condicion: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + condicion + "/0");
+  }
+
   getCitasById(id: string) {
     return this.httpClient.get(this.uri + "cita/" + id);
   }
