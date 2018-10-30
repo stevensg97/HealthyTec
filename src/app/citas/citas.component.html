@@ -32,7 +32,7 @@
                                                 data-target="#clpsFilter" aria-expanded="false" aria-controls="clpsFilter">Filtrar</button>
                                         </div>
                                         <div class="col-md-6">
-                                            <button class="btn btn-danger col-md-12" type="button">Ver Todas</button>
+                                            <button class="btn btn-danger col-md-12" (click)="getCitas('116670973')" type="button">Ver Todas</button>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -99,17 +99,11 @@
                                                 <th>
                                                     Estado
                                                 </th>
-                                                <th>
-                                                    Diagnósticos
-                                                </th>
-                                                <th>
-                                                    Tratamientos
-                                                </th>
                                             </thead>
                                             <tbody>
-                                                <!--<tr *ngFor="let row of tableData1.dataRows">
+                                                <tr *ngFor="let row of tableData1.dataRows">
                                                     <td  *ngFor="let cell of row">{{cell}}</td>
-                                                </tr>-->
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>

@@ -109,7 +109,7 @@ export class ServiceService {
   }
 
   getPacientes() {
-    return this.httpClient.get(this.uri + "Pacientes");
+    return this.httpClient.get(this.uri + "pacientes");
   }
 
   postCita(cita: Citas) {
@@ -119,14 +119,18 @@ export class ServiceService {
 
   updateCita(Cita: Citas, id: string) {
     //console.log(Cita.Nombre);
-    return this.httpClient.post<Citas>(this.uri + "Cita/update/" + id, Cita);
+    return this.httpClient.post<Citas>(this.uri + "cita/update/" + id, Cita);
   }
 
   deleteCita(id: string) {
-    return this.httpClient.get(this.uri + "Cita/delete/" + id);
+    return this.httpClient.get(this.uri + "cita/delete/" + id);
   }
 
   getCitas() {
-    return this.httpClient.get(this.uri + "Citas");
+    return this.httpClient.get(this.uri + "citas");
+  }
+
+  getCitasById(id: string) {
+    return this.httpClient.get(this.uri + "cita/" + id);
   }
 }
