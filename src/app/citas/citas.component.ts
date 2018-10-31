@@ -75,7 +75,7 @@ export class CitasComponent implements OnInit {
           this.createFormModificar.value.Fecha = response[i]["Fecha"];
           this.createFormModificar.value.Especialidad = response[i]["Especialidad"];
           this.createFormModificar.value.CedulaPaciente = response[i]["CedulaPaciente"];
-          this.createFormModificar.value.Estado = "Cancelada por paciente";
+          this.createFormModificar.value.Estado = "CanceladaPorPaciente";
           this.createFormModificar.value.InformacionAdicional = response[i]["InformacionAdicional"];
           console.log("Este es el form", this.createFormModificar);
           this.id = response[i]["_id"];
@@ -211,6 +211,62 @@ export class CitasComponent implements OnInit {
         }
       }
     })
+  }
+
+  getCitasByDate(cedula: string, rango: string) {
+    //this.getId("116670973");
+    this.service.getCitasByDate(rango).subscribe(response => {
+      console.log('Respooooonse es:', response);
+      this.rows = [];
+      let dataKeys = ["Id", "Especialidad", "Fecha", "InformacionAdicional", "Estado"]; //For keys
+      for (var i = 0; i < response["cita"]["length"]; i++) {
+        let dataValues = []; //For values
+        for (let key in dataKeys) {
+          if (response["cita"][i]["CedulaPaciente"] == cedula) {
+            if (dataKeys[key] == "Fecha") {
+              dataValues.push(response["cita"][i][dataKeys[key]]["Dia"] + "/" + response["cita"][i][dataKeys[key]]["Mes"] + "/"
+                + response["cita"][i][dataKeys[key]]["Año"]);
+              dataValues.push(response["cita"][i][dataKeys[key]]["Hora"]);
+            } else {
+              dataValues.push(response["cita"][i][dataKeys[key]]);
+            }
+          }
+        }
+        this.rows[i] = dataValues;
+      }
+    })
+    this.tableData1 = {
+      //headerRow: [ 'Reporte', 'Dispositivo', 'Puente', 'Hora', 'Fecha', 'Distancia', 'Alerta'],
+      dataRows: this.rows,
+    };
+  }
+  getCitasByCond(cedula: string, condicion: string) {
+    //this.getId("116670973");
+    this.service.getCitasByCond(condicion).subscribe(response => {
+      console.log('Respooooonse es:', response);
+      console.log("Primer elemento ", response["citas"][0]);
+      this.rows = [];
+      let dataKeys = ["Id", "Especialidad", "Fecha", "InformacionAdicional", "Estado"]; //For keys
+      for (var i = 0; i < response["total"]; i++) {
+        let dataValues = []; //For values
+        for (let key in dataKeys) {
+          if (response["citas"][i]["CedulaPaciente"] == cedula) {
+            if (dataKeys[key] == "Fecha") {
+              dataValues.push(response["citas"][i][dataKeys[key]]["Dia"] + "/" + response["citas"][i][dataKeys[key]]["Mes"] + "/"
+                + response["citas"][i][dataKeys[key]]["Año"]);
+              dataValues.push(response["citas"][i][dataKeys[key]]["Hora"]);
+            } else {
+              dataValues.push(response["citas"][i][dataKeys[key]]);
+            }
+          }
+        }
+        this.rows[i] = dataValues;
+      }
+    })
+    this.tableData1 = {
+      //headerRow: [ 'Reporte', 'Dispositivo', 'Puente', 'Hora', 'Fecha', 'Distancia', 'Alerta'],
+      dataRows: this.rows
+    };
   }
 
   filtrar(filtroFechas: string, filtroEstado: string, filtroArea: string) {

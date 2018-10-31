@@ -5,15 +5,18 @@
                 <div class="row">
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsTratamientos"
-                            aria-expanded="false" aria-controls="clpsTratamientos">Reporte Tratamientos</button>
+                            aria-expanded="false" aria-controls="clpsTratamientos" (click)="getReporteTratamientos()">Reporte
+                            Tratamientos</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsDiagnosticos"
-                            aria-expanded="false" aria-controls="clpsDiagnosticos">Reporte Diagnósticos</button>
+                            aria-expanded="false" aria-controls="clpsDiagnosticos" (click)="getReporteDiagnosticos()">Reporte
+                            Diagnósticos</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsEnfermedades"
-                            aria-expanded="false" aria-controls="clpsEnfermedades">Reporte Enfermedades</button>
+                            aria-expanded="false" aria-controls="clpsEnfermedades" (click)="getReporteEnfermedades()">Reporte
+                            Enfermedades</button>
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse" data-target="#clpsCitas"
@@ -45,71 +48,8 @@
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                    <td>
-                                                        Niger
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                    <td>
-                                                        Curaçao
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                    <td>
-                                                        Netherlands
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                    <td>
-                                                        Korea, South
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                    <td>
-                                                        Malawi
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
-                                                    <td>
-                                                        Chile
-                                                    </td>
+                                                <tr *ngFor="let row of tableDataTratamientos.dataRows">
+                                                    <td *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -139,53 +79,8 @@
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
+                                                <tr *ngFor="let row of tableDataDiagnosticos.dataRows">
+                                                    <td *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -215,53 +110,8 @@
                                                 </th>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>
-                                                        1
-                                                    </td>
-                                                    <td>
-                                                        Dakota Rice
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        2
-                                                    </td>
-                                                    <td>
-                                                        Minerva Hooper
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        3
-                                                    </td>
-                                                    <td>
-                                                        Sage Rodriguez
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>
-                                                        Philip Chaney
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        5
-                                                    </td>
-                                                    <td>
-                                                        Doris Greene
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        6
-                                                    </td>
-                                                    <td>
-                                                        Mason Porter
-                                                    </td>
+                                                <tr *ngFor="let row of tableDataEnfermedades.dataRows">
+                                                    <td *ngFor="let cell of row">{{cell}}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -282,11 +132,14 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <label>Cantidad de Citas Registradas: </label>
-                                            <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Debe filtrar para mostrar la información"
-                                                    type="text" disabled>
-                                            </mat-form-field>
+                                            <form [formGroup]="createFormAnadir" #cantidadAnadirForm="ngForm">
+                                                <label>Cantidad de Citas Registradas: </label>
+                                                <mat-form-field class="example-full-width">
+                                                    <input matInput placeholder="Debe filtrar para mostrar la información"
+                                                        type="text" formControlName="Cantidad" disabled>
+                                                </mat-form-field>
+                                            </form>
+
                                         </div>
                                     </div>
                                     <div class="row">
@@ -296,7 +149,8 @@
                                         </div>
                                         <div class="col-md-6">
                                             <button class="btn btn-danger col-md-12" type="button" data-toggle="collapse"
-                                                data-target="#clpsPacientes" aria-expanded="false" aria-controls="clpsPacientes">Ver
+                                                data-target="#clpsPacientes" aria-expanded="false" aria-controls="clpsPacientes"
+                                                (click)="getTresPacientes()">Ver
                                                 Pacientes con más Citas en el Sistema</button>
                                         </div>
                                     </div>
@@ -306,8 +160,8 @@
                                                 <div class="col-md-12">
                                                     <label>Filtrar por Paciente</label>
                                                     <mat-form-field class="example-full-width">
-                                                        <input matInput (click)="setFilter('paciente')" placeholder="Cédula del paciente"
-                                                            type="text">
+                                                        <input matInput (click)="setFilter('cedula')" placeholder="Cédula del paciente"
+                                                            type="text" #filtroCedula>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
@@ -316,19 +170,19 @@
                                                     <label>Filtrar por Fechas</label>
                                                     <mat-form-field class="example-full-width">
                                                         <input matInput (click)="setFilter('fechas')" placeholder="dd,mm,aaaa/dd,mm,aaaa"
-                                                            type="text">
+                                                            type="text" #filtroFechas>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>Filtrar por Estado</label>
-                                                    <select class="form-control" (click)="setFilter('estado')">
+                                                    <select class="form-control" (click)="setFilter('estado')" #filtroEstado>
                                                         <option value="" disabled selected>Seleccione el estado</option>
                                                         <option value="Registrada">Registrada</option>
-                                                        <option value="Cancelada por el paciente">Cancelada por el
+                                                        <option value="CanceladaPorPaciente">Cancelada por el
                                                             paciente</option>
-                                                        <option value="Cancelada por centro médico">Cancelada por
+                                                        <option value="CanceladaPorCentroMedico">Cancelada por
                                                             centro médico</option>
                                                         <option value="Asignada">Asignada</option>
                                                         <option value="Realizada">Realizada</option>
@@ -338,7 +192,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>Filtrar por Área</label>
-                                                    <select class="form-control" (click)="setFilter('area')">
+                                                    <select class="form-control" (click)="setFilter('area')" #filtroArea>
                                                         <option value="" disabled selected>Seleccione el área</option>
                                                         <option>Administrativa</option>
                                                         <option>Emergencias</option>
@@ -347,7 +201,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="btn btn-danger" type="button" (click)="prueba();">Aceptar</button>
+                                                <button class="btn btn-danger" type="button" (click)="filtrar(filtroFechas.value, filtroEstado.value, filtroArea.value, filtroCedula.value);" >Aceptar</button>
                                             </div>
 
                                         </div>
@@ -365,29 +219,8 @@
                                                         </th>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                1
-                                                            </td>
-                                                            <td>
-                                                                Dakota Rice
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                2
-                                                            </td>
-                                                            <td>
-                                                                Yay Irin
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>
-                                                                3
-                                                            </td>
-                                                            <td>
-                                                                Sage Rodriguez
-                                                            </td>
+                                                        <tr *ngFor="let row of tableDataPacientes.dataRows">
+                                                            <td *ngFor="let cell of row">{{cell}}</td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
