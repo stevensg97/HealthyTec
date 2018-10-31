@@ -172,6 +172,7 @@ export class FuncionarioComponent implements OnInit {
       }
       this.createFormModificar.value.CodigoUsuario = this.createFormModificar.value.CodigoUsuario + this.contador;
     }
+    
     this.contador++;
   }
 

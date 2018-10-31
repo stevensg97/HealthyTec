@@ -1,6 +1,6 @@
 export class Fecha {
     Dia: number;
     Mes: number;
-    Año: Number;
+    Año: number;
     Hora: string;
 }
