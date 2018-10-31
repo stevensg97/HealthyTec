@@ -75,7 +75,9 @@ export class CitasComponent implements OnInit {
           this.createFormModificar.value.Fecha = response[i]["Fecha"];
           this.createFormModificar.value.Especialidad = response[i]["Especialidad"];
           this.createFormModificar.value.CedulaPaciente = response[i]["CedulaPaciente"];
-          this.createFormModificar.value.Estado = "Cancelada por paciente";
+
+          this.createFormModificar.value.Estado = "CanceladaPorPaciente";
+
           this.createFormModificar.value.InformacionAdicional = response[i]["InformacionAdicional"];
           console.log("Este es el form", this.createFormModificar);
           this.id = response[i]["_id"];
