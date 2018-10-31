@@ -76,7 +76,7 @@ export class CentroComponent implements OnInit {
   }
 
 
-  addcentro(form: NgForm, nombre: any, apellido1: any, apellido2: any) {
+  addcentro(form: NgForm) {
 
     console.log(form.value);
     this.service.postCentroAtencion(form.value) 
