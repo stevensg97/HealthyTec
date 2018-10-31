@@ -42,19 +42,19 @@
                                                     <label>Filtrar por Fechas</label>
                                                     <mat-form-field class="example-full-width">
                                                         <input matInput (click)="setFilter('fechas')" placeholder="dd,mm,aaaa/dd,mm,aaaa"
-                                                            type="text">
+                                                            type="text" #filtroFechas>
                                                     </mat-form-field>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>Filtrar por Estado</label>
-                                                    <select class="form-control" (click)="setFilter('estado')">
+                                                    <select class="form-control" (click)="setFilter('estado')" #filtroEstado>
                                                         <option value="" disabled selected>Seleccione el estado</option>
                                                         <option value="Registrada">Registrada</option>
-                                                        <option value="Cancelada por el paciente">Cancelada por el
+                                                        <option value="CanceladaPorPaciente">Cancelada por el
                                                             paciente</option>
-                                                        <option value="Cancelada por centro médico">Cancelada por
+                                                        <option value="CanceladaPorCentroMedico">Cancelada por
                                                             centro médico</option>
                                                         <option value="Asignada">Asignada</option>
                                                         <option value="Realizada">Realizada</option>
@@ -64,7 +64,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label>Filtrar por Área</label>
-                                                    <select class="form-control" (click)="setFilter('area')">
+                                                    <select class="form-control" (click)="setFilter('area')" #filtroArea>
                                                         <option value="" disabled selected>Seleccione el área</option>
                                                         <option>Administrativa</option>
                                                         <option>Emergencias</option>
@@ -73,7 +73,7 @@
                                                 </div>
                                             </div>
                                             <div class="text-center">
-                                                <button class="btn btn-danger" type="button" (click)="prueba();">Aceptar</button>
+                                                <button class="btn btn-danger" type="button" (click)="filtrar(filtroFechas.value, filtroEstado.value, filtroArea.value);">Aceptar</button>
                                             </div>
 
                                         </div>
@@ -164,22 +164,22 @@
                     </div>
                     <!--Cancelar Cita-->
                     <div class="col-md-12">
-                        <div class="collapse multi-collapse" id="clpsDelete">
+                        <div class="collapse multi-collapse" id="clpsDelete"> 
                             <div class="card">
                                 <div class="card-header card-header-danger">
                                     <h4 class="card-title">Cancelar Cita</h4>
                                     <p class="card-category">Indique el identificador de la cita que desea cancelar</p>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form [formGroup]="createFormModificar" #citasModificarForm="ngForm">
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <mat-form-field class="example-full-width">
-                                                    <input matInput placeholder="Identificador de la cita" type="text">
+                                                    <input matInput placeholder="Identificador de la cita" type="text" #IdModificar>
                                                 </mat-form-field>
                                             </div>
                                         </div>
-                                        <button mat-raised-button type="submit" class="btn btn-danger pull-right">Aceptar</button>
+                                        <button mat-raised-button (click)="updateCita(citasModificarForm, IdModificar.value)" class="btn btn-danger pull-right">Aceptar</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>

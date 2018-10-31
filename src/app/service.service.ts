@@ -133,4 +133,36 @@ export class ServiceService {
   getCitasById(id: string) {
     return this.httpClient.get(this.uri + "cita/" + id);
   }
+
+  getCitasByDate(fechas: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + fechas);
+  }
+
+  getCitasByCond(condicion: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + condicion + "/0");
+  }
+
+  getReporteTratamientos() {
+    return this.httpClient.get(this.uri + "tratamientosasignados");
+  }
+
+  getReporteDiagnosticos() {
+    return this.httpClient.get(this.uri + "rangoenfermedades");
+  }
+
+  getReporteEnfermedades() {
+    return this.httpClient.get(this.uri + "masdiagnosticadas");
+  }
+
+  getTresPacientes() {
+    return this.httpClient.get(this.uri + "cantidadcitas/0/0");
+  }
+
+  getCantidadCitas(condicion: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + condicion +"/0");
+  }
+
+  getCantidadCitasFecha(fechas: string) {
+    return this.httpClient.get(this.uri + "cantidadcitas/" + fechas);
+  }
 }
