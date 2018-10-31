@@ -75,7 +75,9 @@ export class CitasComponent implements OnInit {
           this.createFormModificar.value.Fecha = response[i]["Fecha"];
           this.createFormModificar.value.Especialidad = response[i]["Especialidad"];
           this.createFormModificar.value.CedulaPaciente = response[i]["CedulaPaciente"];
+
           this.createFormModificar.value.Estado = "CanceladaPorPaciente";
+
           this.createFormModificar.value.InformacionAdicional = response[i]["InformacionAdicional"];
           console.log("Este es el form", this.createFormModificar);
           this.id = response[i]["_id"];
@@ -213,6 +215,7 @@ export class CitasComponent implements OnInit {
     })
   }
 
+
   getCitasByDate(cedula: string, rango: string) {
     //this.getId("116670973");
     this.service.getCitasByDate(rango).subscribe(response => {
@@ -268,6 +271,7 @@ export class CitasComponent implements OnInit {
       dataRows: this.rows
     };
   }
+
 
   filtrar(filtroFechas: string, filtroEstado: string, filtroArea: string) {
     if (this.fiterBy == 'fechas') {
