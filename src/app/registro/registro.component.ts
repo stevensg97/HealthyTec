@@ -42,12 +42,13 @@ export class RegistroComponent implements OnInit {
         console.log("<--- RESPONSE --->")
         console.log(data);
       });
+    this.router.navigate(['../login']);
   }
 
   setNombre(nombre: any, apellido1: any, apellido2: any) {
     this.nombrecompleto.Nombre = nombre;
-      this.nombrecompleto.Apellido1 = apellido1;
-      this.nombrecompleto.Apellido2 = apellido2;
+    this.nombrecompleto.Apellido1 = apellido1;
+    this.nombrecompleto.Apellido2 = apellido2;
 
   }
 

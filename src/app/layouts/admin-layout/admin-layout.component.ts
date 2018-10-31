@@ -12,8 +12,14 @@ import PerfectScrollbar from 'perfect-scrollbar';
     styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
-    isLogged = false;
+    
 
+    private _router: Subscription;
+    private lastPoppedUrl: string;
+    private yScrollStack: number[] = [];
+
+    isLogged = false;
+    typeUser = "";
     trueLogged() {
         this.isLogged = true;
     }
@@ -22,11 +28,12 @@ export class AdminLayoutComponent implements OnInit {
         this.isLogged = false;
     }
 
-    private _router: Subscription;
-    private lastPoppedUrl: string;
-    private yScrollStack: number[] = [];
+    setUser(tipo: string) {
+        this.typeUser = tipo;
+    }
 
-    constructor(public location: Location, private router: Router) { }
+    constructor(public location: Location, private router: Router) { 
+    }
 
     ngOnInit() {
         const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;
@@ -57,8 +64,8 @@ export class AdminLayoutComponent implements OnInit {
             }
         });
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
-            elemMainPanel.scrollTop = 0;
-            elemSidebar.scrollTop = 0;
+            //elemMainPanel.scrollTop = 0;
+            //elemSidebar.scrollTop = 0;
         });
         if (window.matchMedia(`(min-width: 960px)`).matches && !this.isMac()) {
             let ps = new PerfectScrollbar(elemMainPanel);

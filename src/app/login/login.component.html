@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <div class="col-md-4" style="margin: 0 auto; float: none;">
+                    <div class="col-md-6" style="margin-left: 15%; float: none;">
                         <div class="card">
                             <div class="card-header card-header-danger">
                                 <img src="../../assets/img/HealthyTec-Logo.png" alt="E-Bidge" height="40" width="40"
@@ -16,20 +16,20 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Usuario" type="text">
+                                                <input matInput placeholder="Usuario" type="text" #User>
                                             </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <mat-form-field class="example-full-width">
-                                                <input matInput placeholder="Contraseña" type="password">
+                                                <input matInput placeholder="Contraseña" type="password" #Pass>
                                             </mat-form-field>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="text-center" style="margin: 0 auto; float: none;">
-                                            <button type="submit" class="btn btn-danger btn-fill btn-wd">Ingresar</button>
+                                            <button type="submit" (click)="login(User.value, Pass.value)" class="btn btn-danger btn-fill btn-wd">Ingresar</button>
                                             <a routerLink="../registro/"><button type="button" class="btn btn-danger">Registrarse</button></a>
                                         </div>
                                     </div>

@@ -85,11 +85,11 @@ export class FuncionarioComponent implements OnInit {
 
 
   addFuncionario(form: NgForm, nombre: any, apellido1: any, apellido2: any) {
-    this.setNombre(nombre, apellido1, apellido2, "add"); 
+    this.setNombre(nombre, apellido1, apellido2, "add");
     this.genUser("add");
     this.genPass("add");
     console.log(form.value);
-    this.service.postFuncionario(form.value) 
+    this.service.postFuncionario(form.value)
       .subscribe((data: any) => {
         console.log("<--- RESPONSE --->")
         console.log(data);
@@ -160,6 +160,8 @@ export class FuncionarioComponent implements OnInit {
         this.createFormAnadir.value.CodigoUsuario = "enf";
       } if (this.createFormAnadir.value.TipoFuncionario === "Secretario") {
         this.createFormAnadir.value.CodigoUsuario = "sec";
+      } if (this.createFormAnadir.value.TipoFuncionario === "Administrador") {
+        this.createFormAnadir.value.CodigoUsuario = "adm";
       }
       this.createFormAnadir.value.CodigoUsuario = this.createFormAnadir.value.CodigoUsuario + this.contador;
     } else {
@@ -169,10 +171,12 @@ export class FuncionarioComponent implements OnInit {
         this.createFormModificar.value.CodigoUsuario = "enf";
       } if (this.createFormModificar.value.TipoFuncionario === "Secretario") {
         this.createFormModificar.value.CodigoUsuario = "sec";
+      } if (this.createFormModificar.value.TipoFuncionario === "Administrador") {
+        this.createFormModificar.value.CodigoUsuario = "adm";
       }
       this.createFormModificar.value.CodigoUsuario = this.createFormModificar.value.CodigoUsuario + this.contador;
     }
-    
+
     this.contador++;
   }
 
