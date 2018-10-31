@@ -17,9 +17,11 @@ declare interface TableData {
 export class CitasSecretarioComponent implements OnInit {
   rows: any;                 //Rows control data
   citas: Object;
+  citaUpdate: Object;
   id: "";
   Fecha: Fecha;
   createFormAnadir: FormGroup;
+  createFormModificar: FormGroup;
   createFormCancelar: FormGroup;
 
   constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
@@ -33,6 +35,16 @@ export class CitasSecretarioComponent implements OnInit {
       CodigoUsuario: '',
       InformacionAdicional: '',
     })
+    this.createFormModificar = this.fb.group({
+      Id: '',
+      Fecha: this.Fecha,
+      Especialidad: '',
+      CedulaPaciente: '',
+      Estado: '',
+      CodigoUsuario: '',
+      InformacionAdicional: '',
+
+    })
     this.createFormCancelar = this.fb.group({
       Id: '',
     })
@@ -42,32 +54,7 @@ export class CitasSecretarioComponent implements OnInit {
     //this.getCitas();
   }
 
-  /*getcitas() {
-    this.service.getCitas().subscribe(response => {
-      console.log('Response es:', response);
-      this.rows = [];
-      let dataKeys = ["Id", "Fecha", "Especialidad", "CedulaPaciente", "Estado", "InformacionAdicional"]; //For keys
-      for (var i = 0; i < response["length"]; i++) {
-        let dataValues = []; //For values
-        for (let key in dataKeys) {
-
-          if (dataKeys[key] == "Fecha") {
-            dataValues.push(response[i][dataKeys[key]]["Dia"]);
-            dataValues.push(response[i][dataKeys[key]]["Mes"]);
-            dataValues.push(response[i][dataKeys[key]]["Año"]);
-            dataValues.push(response[i][dataKeys[key]]["Hora"]);
-          } else {
-            dataValues.push(response[i][dataKeys[key]]);
-          }
-        }
-        this.rows[i] = dataValues;
-      }
-    })
-    this.tableData1 = {
-      //headerRow: [ 'Reporte', 'Dispositivo', 'Puente', 'Hora', 'Fecha', 'Distancia', 'Alerta'],
-      dataRows: this.rows
-    };
-  }*/
+ 
 
   anadirCitaX(form: NgForm, Dia: any, Mes: any, Año: any, Hora: any) {
     this.setFecha(Dia,Mes,Año,Hora); 
@@ -78,36 +65,42 @@ export class CitasSecretarioComponent implements OnInit {
         console.log(data);
       });
   }
+  setFecha(Dia: any, Mes: any, Año: any, Hora: any) {
+    this.Fecha.Dia = Dia;
+    this.Fecha.Mes = Mes;
+    this.Fecha.Año = Año;
+    this.Fecha.Hora = Hora;
+ 
 
-  /*updatecitaX() {
+} 
+
+
+  /*getcitasForm(Id: string) {
+    this.service.getCitas().subscribe(response => {
+      console.log('Response es:', response);
+      let dataKeys = ["Id", "Fecha", "Especialidad", "CedulaPaciente", "Estado", "InformacionAdicional"]; //For keys
+      for (var i = 0; i < response["length"]; i++) {
+         if (Id == response[i]["Id"]) {
+          this.createFormModificar.setValue(Id) = { ["Id": response[i]["Id"]["Id"]: any});
+          this.createFormModificar.setValue(Fechas) = response[i]["Fecha"]["Fecha"]);
+          this.createFormModificar.setValue(Especialidad) = response[i]["Especialidad"]["Especialidad"]);
+          this.createFormModificar.setValue(CedulaPaciente) = response[i]["CedulaPaciente"]["CedulaPaciente"]);
+          this.createFormModificar.setValue(Estado) = "CanceladaXCentroAtencion";
+          this.createFormModificar.setValue(InformacionAdicional) = response[i]["InformacionAdicional"]["InformacionAdicional"]);
+      }
+    })
+    };
+  }*/
+
+    updatecitaX( CodigoUsuario: string) {
     console.log("CanceladaXUsuario");
-    this.getId(this.createFormModificar.value.Id);
-    this.service.updateCita(form.value, this.id)
+    //this.getcitasForm(CodigoUsuario);
+    this.service.updateCita(this.createFormModificar.value, CodigoUsuario)
       .subscribe((data: any) => {
         console.log("<--- RESPONSE --->")
         console.log(data);
       });
-  }*/
-
-  
-  getId(Id: string) {
-    this.service.getCitas().subscribe(response => {
-      console.log('Response es:', response);
-      for (var i = 0; i < response["length"]; i++) {
-        if (Id == response[i]["Id"]) {
-          this.id = response[i]["_id"];
-        }
-      }
-    })
   }
-
-  setFecha(Dia: any, Mes: any, Año: any, Hora: any) {
-      this.Fecha.Dia = Dia;
-      this.Fecha.Mes = Mes;
-      this.Fecha.Año = Año;
-      this.Fecha.Hora = Hora;
-   
-
-  } 
+ 
 
 }
