@@ -17,6 +17,8 @@ import { CitasSecretarioComponent } from '../../citassecretario/citassecretario.
 import { ReportesDoctorComponent } from '../../reportesdoctor/reportesdoctor.component';
 import { ReportesSecretarioComponent } from '../../reportessecretario/reportessecretario.component';
 import { ServiceService } from '../../service.service';
+import { SidebarComponent } from '../../components/sidebar/sidebar.component';
+import { AdminLayoutComponent } from './admin-layout.component';
 //import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import {
@@ -57,7 +59,7 @@ import {
     ReportesDoctorComponent,
     ReportesSecretarioComponent,
   ],
-  providers: [ServiceService],
+  providers: [ServiceService, SidebarComponent, AdminLayoutComponent],
 })
 
 export class AdminLayoutModule { }

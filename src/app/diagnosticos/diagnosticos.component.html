@@ -118,11 +118,8 @@
                                                 <select class="select form-control" title="Seleccione los tratamientos"
                                                     id="slcAddTratamientos" multiple="multiple" size="2" style="height: 100%;"
                                                     formControlName="Tratamientos" #Tratamientos>
-                                                    <option value="Medicamento">Medicamento</option>
-                                                    <option value="Cirugía">Cirugía</option>
-                                                    <option value="Curación">Curación</option>
-                                                    <option value="Sutura">Sutura</option>
-                                                    <option value="Radiografía">Radiografía</option>
+                                                    <option *ngFor="let trats of tratamientos">{{trats}}
+                                                    </option>
                                                 </select>
                                             </div>
                                         </div>
@@ -192,11 +189,7 @@
                                                 <select class="select form-control" title="Seleccione los tratamientos"
                                                     id="slcUpdateTratamientos" multiple="multiple" size="2" style="height: 100%;"
                                                     formControlName="Tratamientos" #Tratamientos>
-                                                    <option value="Medicamento">Medicamento</option>
-                                                    <option value="Cirugía">Cirugía</option>
-                                                    <option value="Curación">Curación</option>
-                                                    <option value="Sutura">Sutura</option>
-                                                    <option value="Radiografía">Radiografía</option>
+                                                    <option *ngFor="let trats of tratamientos">{{trats}}
                                                 </select>
                                             </div>
                                         </div>

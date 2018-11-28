@@ -12,7 +12,7 @@ import { SidebarComponent } from '../components/sidebar/sidebar.component';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(public appComponent: AdminLayoutComponent, private service: ServiceService,
+  constructor(public appComponent: AdminLayoutComponent, public side: SidebarComponent, private service: ServiceService,
     private fb: FormBuilder, private router: Router) {
 
   }
@@ -27,8 +27,9 @@ export class LoginComponent implements OnInit {
         for (var i = 0; i < response["length"]; i++) {
           if (user == response[i]["CodigoUsuario"]) {
             if (password == response[i]["Password"]) {
-              this.appComponent.typeUser="doctor";
+              this.appComponent.setUser('doctor');
               this.appComponent.trueLogged();
+              this.appComponent.runOnRouteChange();
               this.router.navigate(['../citasdoctor']);
               break;
             } else {
@@ -44,7 +45,7 @@ export class LoginComponent implements OnInit {
         for (var i = 0; i < response["length"]; i++) {
           if (user == response[i]["CodigoUsuario"]) {
             if (password == response[i]["Password"]) {
-              this.appComponent.typeUser="secretario";
+              this.appComponent.setUser('secretario');
               this.appComponent.trueLogged();
               this.router.navigate(['../citassecretario']);
               break;
@@ -61,7 +62,7 @@ export class LoginComponent implements OnInit {
         for (var i = 0; i < response["length"]; i++) {
           if (user == response[i]["CodigoUsuario"]) {
             if (password == response[i]["Password"]) {
-              this.appComponent.typeUser="administrador";
+              this.appComponent.setUser('administrador');
               this.appComponent.trueLogged();
               this.router.navigate(['../centro']);
               break;
@@ -78,9 +79,10 @@ export class LoginComponent implements OnInit {
         for (var i = 0; i < response["length"]; i++) {
           if (user == response[i]["CodigoUsuario"]) {
             if (password == response[i]["Password"]) {
-              this.appComponent.typeUser="paciente";
+              this.appComponent.setUser('paciente');
               this.appComponent.trueLogged();
-              this.router.navigate(['../centro']);
+              this.appComponent.userId = response[i]["Cedula"];
+              this.router.navigate(['../citas']);
               break;
             } else {
               alert("Usuario o contraseña incorrecto!");

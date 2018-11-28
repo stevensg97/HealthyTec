@@ -15,6 +15,7 @@ declare interface TableData {
 })
 export class DiagnosticosComponent implements OnInit {
   rows: any;                 //Rows control data
+  tratamientos: any;
   public tableData1: TableData;
   id: string;
   createFormAnadir: FormGroup;
@@ -44,6 +45,7 @@ export class DiagnosticosComponent implements OnInit {
 
   ngOnInit() {
     this.getDiagnosticos();
+    this.getTratamientos();
   }
 
   addDiagnostico(form: NgForm) {
@@ -104,6 +106,22 @@ export class DiagnosticosComponent implements OnInit {
       //headerRow: [ 'Reporte', 'Dispositivo', 'Puente', 'Hora', 'Fecha', 'Distancia', 'Alerta'],
       dataRows: this.rows
     };
+  }
+
+  getTratamientos() {
+    this.service.getTratamientos().subscribe(response => {
+      console.log('Response es:', response);
+      this.tratamientos = [];
+      let dataKeys = ["Nombre"]; //For keys
+      for (var i = 0; i < response["length"]; i++) {
+        let dataValues = []; //For values
+        for (let key in dataKeys) {
+          dataValues.push(response[i][dataKeys[key]]);
+
+        }
+        this.tratamientos[i] = dataValues;
+      }
+    })
   }
 
 }

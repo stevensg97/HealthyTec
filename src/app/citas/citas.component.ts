@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validator, Validators, FormControl, NgForm } from '@angular/forms';
 import { ServiceService } from '../service.service';
 import { Fecha } from 'app/models/fecha';
+import { AdminLayoutComponent } from '../layouts/admin-layout/admin-layout.component';
 
 declare interface TableData {
   //headerRow: string[];
@@ -25,7 +26,7 @@ export class CitasComponent implements OnInit {
   createFormModificar: FormGroup;
   //createFormEliminar: FormGroup;
 
-  constructor(private service: ServiceService, private fb: FormBuilder, private router: Router) {
+  constructor(public appComponent: AdminLayoutComponent, private service: ServiceService, private fb: FormBuilder, private router: Router) {
     this.fecha = new Fecha();
     this.contador = 1;
     this.id = '';
@@ -49,7 +50,7 @@ export class CitasComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCitas("116670973");
+    this.getCitas(this.appComponent.userId);
   }
 
   addCita(form: NgForm, date: string) {
@@ -102,7 +103,7 @@ export class CitasComponent implements OnInit {
       for (var i = 0; i < response["length"]; i++) {
         dataValues = []; //For values
         for (let key in dataKeys) {
-          if (response[i]["CedulaPaciente"] == cedula) {
+          if (response[i]["CedulaPaciente"] == this.appComponent.userId) {
             if (dataKeys[key] == "Fecha") {
               dataValues.push(response[i][dataKeys[key]]["Dia"] + "/" + response[i][dataKeys[key]]["Mes"] + "/"
                 + response[i][dataKeys[key]]["Año"]);
@@ -200,7 +201,7 @@ export class CitasComponent implements OnInit {
   }
 
   setCedula() {
-    this.createFormAnadir.value.CedulaPaciente = "116670973";
+    this.createFormAnadir.value.CedulaPaciente = this.appComponent.userId;
   }
 
   getId(cedula: string) {
@@ -217,13 +218,13 @@ export class CitasComponent implements OnInit {
 
   filtrar(filtroFechas: string, filtroEstado: string, filtroArea: string) {
     if (this.fiterBy == 'fechas') {
-      this.getCitasByDate("116670973", filtroFechas);
+      this.getCitasByDate(this.appComponent.userId, filtroFechas);
     }
     if (this.fiterBy == 'estado') {
-      this.getCitasByCond("116670973", filtroEstado);
+      this.getCitasByCond(this.appComponent.userId, filtroEstado);
     }
     if (this.fiterBy == 'area') {
-      this.getCitasByCond("116670973", filtroArea);
+      this.getCitasByCond(this.appComponent.userId, filtroArea);
     }
   }
 

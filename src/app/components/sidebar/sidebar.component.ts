@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminLayoutComponent } from '../../layouts/admin-layout/admin-layout.component';
-
 declare const $: any;
 declare interface RouteInfo {
     path: string;
@@ -8,9 +7,11 @@ declare interface RouteInfo {
     icon: string;
     class: string;
 }
-var typeUser = "";
+
+export var typeUser = "administrador";
+
 export var ROUTES: RouteInfo[];
-if (typeUser === "administrador") {
+if (typeUser === "administrador") { 
     ROUTES = [
         { path: '/centro', title: 'Centros de Atención', icon: 'local_hospital', class: '' },
         { path: '/funcionario', title: 'Funcionarios', icon: 'group', class: '' },
@@ -18,12 +19,12 @@ if (typeUser === "administrador") {
         { path: '/tratamientos', title: 'Tratamientos', icon: 'healing', class: '' },
         { path: '/reportes', title: 'Reportes', icon: 'description', class: '' },
     ];
-} if (typeUser === "doctor") {
+} else if (typeUser === "doctor") {
     ROUTES = [
         { path: '/citasdoctor', title: 'Citas', icon: 'calendar_today', class: '' },
         { path: '/reportesdoctor', title: 'Reportes', icon: 'description', class: '' },
     ];
-} if (typeUser === "secretario") {
+} else if (typeUser === "secretario") {
     ROUTES = [
         { path: '/citassecretario', title: 'Citas', icon: 'calendar_today', class: '' },
         { path: '/reportessecretario', title: 'Reportes', icon: 'description', class: '' },
@@ -52,14 +53,39 @@ if (typeUser === "administrador") {
     styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-
     menuItems: any[];
-    sysModule: string = typeUser;
-    constructor(public appComponent: AdminLayoutComponent) { 
+    sysModule: string = this.appComponent.typeUser;
+    constructor(public appComponent: AdminLayoutComponent) {
+        if (this.appComponent.typeUser === "administrador") { 
+            ROUTES = [
+                { path: '/centro', title: 'Centros de Atención', icon: 'local_hospital', class: '' },
+                { path: '/funcionario', title: 'Funcionarios', icon: 'group', class: '' },
+                { path: '/diagnosticos', title: 'Diagnósticos/Enfermedades', icon: 'list_alt', class: '' },
+                { path: '/tratamientos', title: 'Tratamientos', icon: 'healing', class: '' },
+                { path: '/reportes', title: 'Reportes', icon: 'description', class: '' },
+            ];
+        } else if (this.appComponent.typeUser === "doctor") {
+            ROUTES = [
+                { path: '/citasdoctor', title: 'Citas', icon: 'calendar_today', class: '' },
+                { path: '/reportesdoctor', title: 'Reportes', icon: 'description', class: '' },
+            ];
+        } else if (this.appComponent.typeUser === "secretario") {
+            ROUTES = [
+                { path: '/citassecretario', title: 'Citas', icon: 'calendar_today', class: '' },
+                { path: '/reportessecretario', title: 'Reportes', icon: 'description', class: '' },
+            ];
+        } else {
+            ROUTES = [
+                { path: '/citas', title: 'Citas', icon: 'calendar_today', class: '' },
+            ];
+        }
+        this.menuItems = ROUTES.filter(menuItem => menuItem);
+        console.log(this.menuItems);
     }
 
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+        console.log(this.menuItems);
     }
     isMobileMenu() {
         if ($(window).width() > 991) {
